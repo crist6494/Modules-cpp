@@ -3,24 +3,29 @@ NAME = phonebook
 CPP = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
+SRCS_DIR = ./src/
+OBJS_DIR = ./obj/
+
 SRCS = phonebook.cpp contact.cpp main.cpp 
-OBJS = $(SRCS:.cpp=.o)
+OBJS = $(addprefix $(OBJS_DIR),$(SRCS:.cpp=.o))
 
-all: $(NAME)
+all: obj $(NAME)
 
-%.o: %.cpp
-	$(CPP) $(CPPFLAGS) -c $< -o $@
+obj:
+	@mkdir -p $(OBJS_DIR)
+
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp
+	$(CPP) $(CPPFLAGS) -I ./includes/ -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(CPP) $(OBJS) -o $(NAME)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf obj $(OBJS)
 
 fclean:	clean
 	rm -rf $(NAME)
 
-re:
-	fclean all
+re: fclean all
 
 .PHONY: all clean fclean re
