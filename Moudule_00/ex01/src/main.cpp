@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:30:46 by cmorales          #+#    #+#             */
-/*   Updated: 2023/03/28 20:08:03 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/03/29 00:35:51 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,17 @@ int	main(void)
 	while(cmd != "EXIT")
 	{
 		std::cout<<"Enter a command: ";
-		if(std::getline(std::cin, cmd) == NULL)
-			return(1);
+		std::getline(std::cin, cmd);
+		if (std::cin.eof())
+			return (1);
 		if(cmd == "EXIT")
 			return (1);
 		if(cmd == "ADD")
 			pb.add_contact();
 		else if(cmd == "SEARCH")
-			pb.print_phonebook();
+			pb.print_contact_table();
 		else
-			std::cout<<"Please enter: ADD, SEARCH or EXIT"<<std::endl;
+			std::cout<< "Please enter: ADD, SEARCH or EXIT"<< std::endl;
 	}
 }
 			//std::cout<<std::endl;
