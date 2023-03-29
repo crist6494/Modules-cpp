@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:33:44 by cmorales          #+#    #+#             */
-/*   Updated: 2023/03/29 01:07:26 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:28:11 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ class Phonebook{
 		int		n_contacts;
 	public:
 		Phonebook();
+		~Phonebook();
 		void	add_contact();
 		void	print_contact_table();
+		void	print_num_contact(int n);
 };  
 
 #endif

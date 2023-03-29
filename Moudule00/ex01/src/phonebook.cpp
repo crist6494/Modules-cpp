@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:21:30 by cmorales          #+#    #+#             */
-/*   Updated: 2023/03/29 01:08:33 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:41:36 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 Phonebook::Phonebook(){
 	n_contacts = 0;
+}
+
+Phonebook::~Phonebook(){
 }
 
 void Phonebook::add_contact()
@@ -29,20 +32,25 @@ void Phonebook::add_contact()
 void Phonebook::print_contact_table()
 {
 	int n = n_contacts;
-	std::cout<< "-------------------------------------------------------\n";
+	if(n >= 8)
+		n = 8;
+	std::cout<< "--------------------------------------------------------\n";
 	std::cout<<"|";
-	for(int i = 0; i < 5; i++){
-		if(contacts[0].fields[i].length() > 10)
-			std::cout<< BOLDCYAN<<contacts[0].fields[i].substr(0, 9)<< RESET<< "|.";
-		else
-		{
-			std::cout<< BOLDCYAN<< std::setw(10)<< contacts[0].fields[i] <<RESET << "|";
-		}
-	}
+	contacts[0].print_fields_table();
 	std::cout<<std::endl;	
-	for(int i = 0; i < n;i++){
-		std::cout << "-------------------------------------------------------\n";
+	for(int i = 0; i < n; i++){
+		std::cout << "--------------------------------------------------------\n";
 		contacts[i].print_data_table();
 	}
 	std::cout<< "--------------------------------------------------------\n";
+}
+
+void Phonebook::print_num_contact(int n)
+{
+	if(n <= 0 || n > 8 || n > n_contacts)
+	{
+		std::cout<<"Invalid index "<<std::endl;
+		return ;
+	}
+	contacts[(n - 1) % 8].print_contacts();
 }
