@@ -6,7 +6,7 @@ CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 SRCS_DIR = ./src/
 OBJS_DIR = ./obj/
 
-SRCS = Zombie.cpp main.cpp randomChump.cpp newZombie.cpp
+SRCS = Zombie.cpp main.cpp 
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
 
 all: obj $(NAME)

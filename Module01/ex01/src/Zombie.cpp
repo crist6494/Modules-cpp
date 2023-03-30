@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 19:48:44 by cmorales          #+#    #+#             */
-/*   Updated: 2023/03/30 18:55:33 by cmorales         ###   ########.fr       */
+/*   Created: 2023/03/30 19:30:45 by cmorales          #+#    #+#             */
+/*   Updated: 2023/03/30 19:45:39 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#include "Zombie.hpp"
 
-# include <iostream>
-# include <string>
+Zombie::Zombie(std::string _name)
+{
+	name = _name;
+	announce();
+}
 
-class Zombie{
-	
-	private:
-	std::string	name;
-	
-	public:
-	Zombie(std::string name);
-	~Zombie();
-	void	announce(void);
-};
+Zombie::~Zombie()
+{
+	std::cout<<name<<" has been destroyed"<<std::endl;
+}
 
-void	randomChump(std::string name);
-Zombie*	newZombie(std::string name);
-
-#endif
+void	Zombie::announce(void)
+{
+	std::cout<<name<<": BraiiiiiiinnnzzzZ..."<<std::endl;
+}
