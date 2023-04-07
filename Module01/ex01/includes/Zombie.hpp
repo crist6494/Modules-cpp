@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:31:34 by cmorales          #+#    #+#             */
-/*   Updated: 2023/03/30 19:45:16 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:43:30 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Zombie{
 	std::string	name;
 	
 	public:
+	Zombie();
 	Zombie(std::string name);
 	~Zombie();
 	void	announce(void);

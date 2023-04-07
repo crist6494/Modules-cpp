@@ -5,21 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 19:30:36 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/05 17:06:39 by cmorales         ###   ########.fr       */
+/*   Created: 2023/04/05 17:11:33 by cmorales          #+#    #+#             */
+/*   Updated: 2023/04/07 17:15:17 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
 int main()
 {
-	int n = 5;
-	Zombie *zb_horde = zombieHorde(n, "Pepe");
+	std::string s = "HI THIS IS BRAIN";
+	std::string *dir_s1 = &s;
+	std::string &ref_s1 = s;
 	
-	for(int i = 0; i < n; i++){
-		zb_horde[i].announce();
-	}
-	delete[] zb_horde;  //Preguntar lo del mensaje
-	return 0;
+	std::cout << "Memory address of string: " << &s << std::endl;
+	std::cout << "Memory address of stringPTR: " << dir_s1 << std::endl;
+	std::cout << "Memory address of stringREF: " << &ref_s1 << std::endl<<std::endl;
+
+	std::cout << "Value of string: " << s << std::endl;
+	std::cout << "Value of stringPTR: " << *dir_s1 << std::endl;
+	std::cout << "Value of stringREF: " << ref_s1 << std::endl;
+	
 }
