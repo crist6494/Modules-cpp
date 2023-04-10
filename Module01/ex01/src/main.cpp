@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:30:36 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/05 17:06:39 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:12:43 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int main()
 	for(int i = 0; i < n; i++){
 		zb_horde[i].announce();
 	}
-	delete[] zb_horde;  //Preguntar lo del mensaje
+	delete[] zb_horde;
 	return 0;
 }

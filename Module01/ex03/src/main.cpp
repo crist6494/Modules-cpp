@@ -6,15 +6,13 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:40:27 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/09 17:52:23 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:49:01 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 #include "Weapon.hpp"
-
-//Preguntar pq pilla el weapon de arriba
 
 int main()
 {
