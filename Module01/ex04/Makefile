@@ -1,4 +1,4 @@
-NAME	=	brain
+NAME	=	replace
 
 CPP = c++
 CPFLAGS = -Wall -Werror -Wextra -std=c++98
