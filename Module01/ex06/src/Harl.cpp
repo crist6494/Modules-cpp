@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 18:43:15 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/13 00:48:16 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/13 00:46:00 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,30 @@ void Harl::error()
 void Harl::complain(std::string level)
 {
 	std::string options[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*array_fun[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	int grade;
 	int i;
 	for(i = 0; i < 4; i++)
 	{
 		if(options[i].compare(level) == 0)
-			break ;
+		{
+			grade = i;
+			break;
+		}
 	}
-	if(i < 4)
-		(this->*array_fun[i])();
-	else
-		std::cout<<"String passed doesn't correspond with any function!!!"<<std::endl;
+	
+	switch(grade)
+	{
+		case 0:
+			this->debug();
+		case 1:
+			this->info();
+		case 2:
+			this->warning();
+		case 3:
+			this->error();
+			break;
+		default:
+			std::cout<<"[ Probably complaining about insignificant problems ]"<<std::endl;
+	}
+	
 }
-
-//(this->*array_fun[i])();  * ejecuta el puntero de la funcion miembro correspondiente y necesita el this pq tiene que estar en una instancia

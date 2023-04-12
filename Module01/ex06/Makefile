@@ -1,4 +1,4 @@
-NAME = harl2.0
+NAME = harl_filter
 
 CPP = c++
 CPFLAGS = -Wall -Werror -Wextra -std=c++98
