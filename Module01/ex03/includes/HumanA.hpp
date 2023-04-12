@@ -6,12 +6,12 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:40:16 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/10 17:27:45 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:48:05 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_H
-# define HUMANA_H
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
 #include "Weapon.hpp"
 

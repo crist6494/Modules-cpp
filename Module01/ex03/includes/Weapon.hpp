@@ -6,12 +6,12 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:41:20 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/09 17:25:07 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:48:13 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-# define WEAPON_H
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
 # include <iostream>
 # include <string>
