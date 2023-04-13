@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:30:46 by cmorales          #+#    #+#             */
-/*   Updated: 2023/03/29 15:11:23 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/13 20:10:05 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(void)
 			std::getline(std::cin, num);
 			if (std::cin.eof())
 				return (1);
-			if(num[0] >= '0' && num[0] <= '9')
+			if(num[0] >= '0' && num[0] <= '9' && num.size() < 10)
 				n = std::stoi(num);
 			else
 				n = -1;

@@ -1,21 +1,22 @@
-NAME = phonebook
+NAME = harl2.0
 
 CPP = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCS_DIR = ./src/
 OBJS_DIR = ./obj/
 
-SRCS = phonebook.cpp contact.cpp main.cpp 
-OBJS = $(addprefix $(OBJS_DIR),$(SRCS:.cpp=.o))
+INC = ./includes/
+SRCS = main.cpp Fixed.cpp
+OBJS = $(addprefix $(OBJS_DIR),$(notdir SRCS:.cpp=.o))
 
 all: obj $(NAME)
 
 obj:
-	@mkdir -p $(OBJS_DIR)
+	mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp
-	$(CPP) $(CPPFLAGS) -I ./includes/ -c $< -o $@
+	$(CPP) $(CPPFLAGS) -I $(INC) -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(CPP) $(OBJS) -o $(NAME)
@@ -23,9 +24,9 @@ $(NAME): $(OBJS)
 clean:
 	rm -rf obj $(OBJS)
 
-fclean:	clean
+fclean: clean
 	rm -rf $(NAME)
-
+	
 re: fclean 
 	make all
 
