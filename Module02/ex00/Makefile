@@ -1,4 +1,4 @@
-NAME = harl2.0
+NAME = fixed
 
 CPP = c++
 CPFLAGS = -Wall -Werror -Wextra -std=c++98
@@ -8,7 +8,7 @@ OBJS_DIR = ./obj/
 
 INC = ./includes/
 SRCS = main.cpp Fixed.cpp
-OBJS = $(addprefix $(OBJS_DIR),$(notdir SRCS:.cpp=.o))
+OBJS = $(addprefix $(OBJS_DIR),$(SRCS:.cpp=.o))
 
 all: obj $(NAME)
 
@@ -31,3 +31,4 @@ re: fclean
 	make all
 
 .PHONY: all clean fclean re
+
