@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:43 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/14 15:47:55 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/17 20:37:57 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,14 @@ class Fixed
 		Fixed();
 		~Fixed();
 		Fixed(const Fixed& src);
-		Fixed &operator=(const Fixed& obj);
+		Fixed &operator=(const Fixed &obj);
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		void	print_class();
 	private:
 		int						value;
+		int n ;
+		std::string				name;
 		static const int fract_bit = 8;
 };
 
