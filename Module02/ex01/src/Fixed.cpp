@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:39 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/18 20:06:31 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:07:07 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,18 @@ Fixed::~Fixed()
 	std::cout<<"Destructor called" <<std::endl;
 }
 
-Fixed&	Fixed::operator=(const Fixed &obj)
-{
-	std::cout<<"Assignation operator called "<<std::endl;
-	this->_value = obj._value;
-	return *this;
-}
-
 Fixed::Fixed(const Fixed& src)
 {
 	std::cout<<"Copy constructor called"<<std::endl;
 	*this = src;
 }
 
+Fixed&	Fixed::operator=(const Fixed &obj)
+{
+	std::cout<<"Assignation operator called "<<std::endl;
+	this->_value = obj._value;
+	return *this;
+}
 
 int	Fixed::getRawBits(void) const
 {
@@ -48,4 +47,34 @@ int	Fixed::getRawBits(void) const
 void	Fixed::setRawBits(int const raw)
 {
 	this->_value = raw;
+}
+
+/*-------------------------------ex01------------------------------------*/
+
+Fixed::Fixed(const int n)
+{
+	std::cout<<"Int constructor called"<<std::endl;
+	this->_value = n << _nbBits;
+}
+
+Fixed::Fixed(const float n)
+{
+	std::cout<<"Float constructor called"<<std::endl;
+	this->_value = (int)roundf(n * (1 << _nbBits));
+}
+
+int		Fixed::toInt() const
+{
+	return (this->_value >> _nbBits);
+}
+
+float	Fixed::toFloat() const
+{
+	return ((float)this->_value) / (1 << _nbBits);
+}
+
+std::ostream &operator<<(std::ostream &ost, const Fixed &obj)
+{
+	ost << obj.toFloat();
+	return ost;
 }
