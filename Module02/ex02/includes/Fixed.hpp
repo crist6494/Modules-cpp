@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:43 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/18 20:02:16 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:31:43 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,36 @@ class Fixed
 		Fixed(const float n);
 		Fixed(const Fixed& src);
 		~Fixed();
-		Fixed &operator=(const Fixed &obj);
+		
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 		float	toFloat() const;
-		int		toInt() const; 
+		int		toInt() const;
+		
+		Fixed &operator=(const Fixed &obj);
+		
+		bool operator>(const Fixed &obj) const;
+		bool operator<(const Fixed &obj) const;
+		bool operator>=(const Fixed &obj) const;
+		bool operator<=(const Fixed &obj) const;
+		bool operator==(const Fixed &obj) const;
+		bool operator!=(const Fixed &obj) const;
+
+		Fixed operator+(const Fixed &obj) const;
+		Fixed operator-(const Fixed &obj) const;
+		Fixed operator/(const Fixed &obj) const;
+		Fixed operator*(const Fixed &obj) const;
+		
+		Fixed& operator++();
+		Fixed& operator--();
+		Fixed operator++(int n);
+		Fixed operator--(int n);
+
+		static Fixed& min(Fixed& a, Fixed& b);
+		static Fixed& max(Fixed& a, Fixed& b);
+		static Fixed& min(Fixed const &a, Fixed const &b);
+		static Fixed& max(Fixed const &a, Fixed const &b);
+		
 	private:
 		int						_value;
 		static const int _nbBits = 8;

@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:43 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/18 18:44:49 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:29:42 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ class Fixed
 		~Fixed();
 		Fixed(const Fixed& src);
 		Fixed &operator=(const Fixed &obj);
+		
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		
 	private:
 		int						_value;
 		static const int _fract_bit = 8;
