@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:39 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/18 20:07:07 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/20 11:25:47 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ Fixed::~Fixed()
 	std::cout<<"Destructor called" <<std::endl;
 }
 
-Fixed::Fixed(const Fixed& src)
+Fixed::Fixed(const Fixed &src)
 {
 	std::cout<<"Copy constructor called"<<std::endl;
 	*this = src;
 }
 
-Fixed&	Fixed::operator=(const Fixed &obj)
+Fixed &Fixed::operator=(const Fixed &obj)
 {
 	std::cout<<"Assignation operator called "<<std::endl;
 	this->_value = obj._value;
@@ -73,7 +73,7 @@ float	Fixed::toFloat() const
 	return ((float)this->_value) / (1 << _nbBits);
 }
 
-std::ostream &operator<<(std::ostream &ost, const Fixed &obj)
+std::ostream & operator<<(std::ostream &ost, const Fixed &obj)
 {
 	ost << obj.toFloat();
 	return ost;

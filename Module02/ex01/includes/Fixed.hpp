@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:43 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/19 18:29:33 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/20 11:24:22 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Fixed
 		Fixed();
 		Fixed(const int n);
 		Fixed(const float n);
-		Fixed(const Fixed& src);
+		Fixed(const Fixed &src);
 		~Fixed();
 		
 		int		getRawBits(void) const;
@@ -31,13 +31,13 @@ class Fixed
 		float	toFloat() const;
 		int		toInt() const;
 		
-		Fixed &operator=(const Fixed &obj);
+		Fixed & operator=(const Fixed &obj);
 		
 	private:
 		int						_value;
 		static const int _nbBits = 8;
 };
 
-std::ostream &operator<<(std::ostream &ost, const Fixed &obj);
+std::ostream & operator<<(std::ostream &ost, const Fixed &obj);
 
 #endif

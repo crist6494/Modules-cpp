@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:43 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/19 18:29:42 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/20 11:26:54 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Fixed
 	public:
 		Fixed();
 		~Fixed();
-		Fixed(const Fixed& src);
-		Fixed &operator=(const Fixed &obj);
+		Fixed(const Fixed &src);
+		Fixed & operator=(const Fixed &obj);
 		
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
