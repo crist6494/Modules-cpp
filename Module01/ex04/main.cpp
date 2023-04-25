@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:21:27 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/12 17:27:31 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:56:41 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ std::string get_content_file(std::string filename)
 void replace_string(std::string filename, std::string s1, std::string s2)
 {
 	std::string file;
-	std::string aux;
 	std::ofstream out_file;
 	size_t	n_find;
 
@@ -47,17 +46,17 @@ void replace_string(std::string filename, std::string s1, std::string s2)
 	out_file.open(filename_char);
 	if(!out_file.is_open())
 		std::cout << "Error: File cannot be opened"<< std::endl;
-	else
+	int start = 0;
+	n_find = file.find(s1);
+	while(n_find  != std::string::npos)
 	{
-		while((n_find = file.find(s1)) != std::string::npos)
-		{
-			aux = file.substr(n_find + s1.size());
-			file.erase(n_find);
-			file += s2 + aux;
-		}
-		out_file << file;
-		out_file.close();
+		out_file << file.substr(start, n_find - start);
+		out_file << s2;
+		start = n_find + s1.size();
+		n_find = file.find(s1, start);
 	}
+	out_file << file.substr(start);
+	out_file.close();
 }
 
 int main(int ac, char **av)
