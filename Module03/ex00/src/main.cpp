@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 20:30:51 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/26 20:48:51 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/27 12:08:41 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int main()
 {
-	ClapTrap cp1("Pepe");
+	ClapTrap p1("");
+
+	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 20:36:10 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/26 20:50:26 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/27 12:13:26 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class ClapTrap
 {
 	private:
 		std::string _name;
-		unsigned int _hitpoints:
-		//unsigned int _energypt:
-		unsigned int attackdamage:
+		unsigned int _hitpoints;
+		unsigned int _energypoints;
+		unsigned int _attackdamage;
 	public:
 		ClapTrap(std::string name);
 		~ClapTrap();

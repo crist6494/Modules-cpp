@@ -7,7 +7,7 @@ SRCS_DIR = ./src/
 OBJS_DIR = ./obj/
 INC = ./includes/
 
-SRCS = main.cpp
+SRCS = main.cpp ClapTrap.cpp
 
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
 
@@ -30,5 +30,8 @@ fclean: clean
 
 re: fclean
 	make all
+
+r: re
+	./$(NAME)
 
 .PHONY: re clean fclean all
