@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 20:37:23 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/28 19:38:26 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:44:25 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,25 @@
 ClapTrap::ClapTrap()
 	: _hitpoints(10), _energypoints(10), _attackdamage(0)
 {
-	std::cout<<"Default constructor called"<<std::endl;
+	std::cout<<"Default constructor called for ClavTrap: NO NAME"<<std::endl;
+
 }
 
 ClapTrap::ClapTrap(std::string name)
 	: _hitpoints(10), _energypoints(10), _attackdamage(0)
 {
 	this->_name= name;
-	std::cout<<"Constructor with 1 parameter <string> called for ClapTrap: " << this->_name <<std::endl;
+	std::cout<<"Constructor with 1 parameter <string> called from ClapTrap: " << this->_name <<std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& src)
 {
-	std::cout<<"Copy constructor called"<<std::endl;
+	std::cout<<"Copy constructor called from ClapTrap"<<std::endl;
 	*this = src;
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout<<"Destructor called for ClapTrap: " << this->_name <<std::endl;
+	std::cout<<"Destructor called from ClapTrap: " << this->_name <<std::endl;
 }
 
 void ClapTrap::printDates() const
@@ -98,7 +99,6 @@ unsigned int ClapTrap::getAttackDamage() const
 {
 	return(this->_attackdamage);
 }
-
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
 {

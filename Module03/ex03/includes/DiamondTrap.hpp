@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 20:36:10 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/28 19:37:52 by cmorales         ###   ########.fr       */
+/*   Created: 2023/05/02 23:09:20 by cmorales          #+#    #+#             */
+/*   Updated: 2023/05/02 23:13:07 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef DIAMONDTRAP_H
+# define DIAMONDTRAP_H
 
 # include <iostream>
 # include <string>
+# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-class ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	private:
 		std::string _name;
-		unsigned int _hitpoints;
-		unsigned int _energypoints;
-		unsigned int _attackdamage;
 	public:
-		ClapTrap();
-		~ClapTrap();
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap& src);
+		DiamondTrap();
+		~DiamondTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap& src);
 		
-		void printDates() const;
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-		std::string getName() const;
-		unsigned int getAttackDamage() const;
-		ClapTrap& operator=(const ClapTrap &obj);
+		DiamondTrap& operator=(const DiamondTrap& obj);
+		
 };
 
 #endif
