@@ -6,12 +6,12 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:16:18 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/02 22:31:52 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/03 23:02:18 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_H
-# define FREAGTRAP_H
+# define FRAGTRAP_H
 
 # include <iostream>
 # include <string>
