@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:39 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/20 12:14:39 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:08:11 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed::Fixed(const Fixed& src)
 	*this = src;
 }
 
-Fixed&	Fixed::operator=(const Fixed &obj)
+Fixed&	Fixed::operator=(const Fixed& obj)
 {
 	//std::cout<<"Assignation operator called "<<std::endl;
 	this->_value = obj._value;
@@ -73,7 +73,7 @@ float	Fixed::toFloat() const
 	return ((float)this->_value) / (1 << _nbBits);
 }
 
-std::ostream &operator<<(std::ostream &ost, const Fixed &obj)
+std::ostream &operator<<(std::ostream& ost, const Fixed& obj)
 {
 	ost << obj.toFloat();
 	return ost;
@@ -83,54 +83,54 @@ std::ostream &operator<<(std::ostream &ost, const Fixed &obj)
 
 /*---------Comparison operators-----------*/
 
-bool Fixed::operator>(const Fixed &obj) const
+bool Fixed::operator>(const Fixed& obj) const
 {
 	return (this->toFloat() > obj.toFloat());
 }
 
-bool Fixed::operator<(const Fixed &obj) const
+bool Fixed::operator<(const Fixed& obj) const
 {
 	return (this->toFloat() < obj.toFloat());
 }
 
-bool Fixed::operator>=(const Fixed &obj) const
+bool Fixed::operator>=(const Fixed& obj) const
 {
 	return (this->toFloat() >= obj.toFloat());
 }
 
-bool Fixed::operator<=(const Fixed &obj) const
+bool Fixed::operator<=(const Fixed& obj) const
 {
 	return (this->toFloat() <= obj.toFloat());
 }
 
-bool Fixed::operator==(const Fixed &obj) const
+bool Fixed::operator==(const Fixed& obj) const
 {
 	return (this->toFloat() == obj.toFloat());
 }
 
-bool Fixed::operator!=(const Fixed &obj) const
+bool Fixed::operator!=(const Fixed& obj) const
 {
 	return (this->toFloat() != obj.toFloat());
 }
 
 /*---------Arithmetic operators-----------*/
 
-Fixed Fixed::operator+(const Fixed &obj) const
+Fixed Fixed::operator+(const Fixed& obj) const
 {
 	return ((Fixed)(this->toFloat() + obj.toFloat()));
 }
 
-Fixed Fixed::operator-(const Fixed &obj) const
+Fixed Fixed::operator-(const Fixed& obj) const
 {
 	return ((Fixed)(this->toFloat() - obj.toFloat()));
 }
 
-Fixed Fixed::operator*(const Fixed &obj) const
+Fixed Fixed::operator*(const Fixed& obj) const
 {
 	return ((Fixed)(this->toFloat() * obj.toFloat()));
 }
 
-Fixed Fixed::operator/(const Fixed &obj) const
+Fixed Fixed::operator/(const Fixed& obj) const
 {
 	return ((Fixed)(this->toFloat() / obj.toFloat()));
 }
@@ -179,14 +179,14 @@ Fixed& Fixed::max(Fixed& a, Fixed& b)
 	return a;	
 }
 
-const Fixed& Fixed::min(Fixed const &a, Fixed const &b)
+const Fixed& Fixed::min(const Fixed& a, const Fixed &b)
 {
 	if(a.getRawBits() > b.getRawBits())
 		return b;
 	return a;
 }
 
-const Fixed& Fixed::max(Fixed const &a, Fixed const &b)
+const Fixed& Fixed::max(const Fixed& a, const Fixed &b)
 {
 	if(a.getRawBits() < b.getRawBits())
 		return b;
