@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 23:09:20 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/03 23:21:32 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/04 11:53:14 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap, public virtual ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	private:
 		std::string _name;
