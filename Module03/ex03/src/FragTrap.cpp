@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:16:08 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/02 22:34:36 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:58:17 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ FragTrap::FragTrap()
 	this->_hitpoints = 100;
 	this->_energypoints = 100;
 	this->_attackdamage = 30;
-	std::cout<<"Default constructor called from FragTrap: NO NAME"<<std::endl;
+	std::cout<<"Default constructor called from DiamondTrap: NO NAME"<<std::endl;
 }
 
 FragTrap::FragTrap(std::string name)

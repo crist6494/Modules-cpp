@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 23:09:20 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/04 11:53:14 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:40:02 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ class DiamondTrap : public FragTrap, public ScavTrap
 	private:
 		std::string _name;
 	public:
-		//DiamondTrap();
+		DiamondTrap();
 		~DiamondTrap();
 		DiamondTrap(std::string name);
-		void Diamond_Dates() const;
-		//DiamondTrap(const DiamondTrap& src);
+		DiamondTrap(const DiamondTrap& src);
 		
-		//DiamondTrap& operator=(const DiamondTrap& obj);
+		void Diamond_Dates() const;
+		void whoAmI();
+		void attack(const std::string& target);
+		
+		DiamondTrap& operator=(const DiamondTrap& obj);
 		
 };
 

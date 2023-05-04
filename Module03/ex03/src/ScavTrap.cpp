@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 20:27:48 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/02 18:48:07 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:58:22 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ ScavTrap::~ScavTrap(){
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& obj)
 {
-	ClapTrap::operator=(obj);
 	std::cout<<"Assignation operator called from ScavTrap"<<std::endl;
+	ClapTrap::operator=(obj);
 	return *this;
 }
 
