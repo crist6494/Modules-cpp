@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 23:09:23 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/04 20:18:39 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/08 19:01:32 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ DiamondTrap::DiamondTrap()
 	this->_hitpoints = FragTrap::hitpoints_ft;
     this->_energypoints = ScavTrap::energypoints_st;
     this->_attackdamage = FragTrap::attackdamage_ft;
+	std::cout<<"Default constructor called from DiamondTrap: NO NAME"<<std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name)
