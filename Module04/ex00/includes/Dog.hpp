@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:42:19 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/10 11:49:03 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/10 18:22:08 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 class Dog : public Animal
 {
 	public:
+		Dog(const std::string& name);
 		Dog();
 		~Dog();
 		Dog(const Dog& src);
 		Dog& operator=(const Dog& src);
-		virtual void makesound();
-		void sound();
+		void makeSound() const;
 };
 
 #endif

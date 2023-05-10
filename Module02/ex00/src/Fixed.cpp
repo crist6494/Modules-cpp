@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:39 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/28 18:00:45 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:12:23 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed::~Fixed()
 Fixed &Fixed::operator=(const Fixed& obj)
 {
 	std::cout<<"Assignation operator called "<<std::endl;
-	this->_value = obj._value;
+	this->_value = obj.getRawBits();
 	return *this;
 }
 

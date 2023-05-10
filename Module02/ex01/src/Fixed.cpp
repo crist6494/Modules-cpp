@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:39 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/28 18:02:45 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/10 18:33:17 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ Fixed::Fixed(const float n)
 
 int		Fixed::toInt() const
 {
-	return (this->_value >> _nbBits);
+	return (this->_value >> _nbBits);5
 }
 
 float	Fixed::toFloat() const
