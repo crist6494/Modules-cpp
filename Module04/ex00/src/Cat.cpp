@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:43:30 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/08 20:02:39 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/09 23:45:35 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,9 @@ Cat& Cat::operator=(const Cat& src)
 	std::cout<<"Assignation operator called from Cat"<<std::endl;
 	Animal::operator=(src);
 	return *this;
+}
+
+void Cat::makesound()
+{
+	std::cout << "Miaaaauuu" << std::endl;
 }

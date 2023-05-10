@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:59:45 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/08 19:20:24 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/09 23:42:52 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,9 @@ Animal& Animal::operator=(const Animal& src)
 	this->_type = src._type;
 	return *this;
 }
+
+void Animal::makesound()
+{
+	std::cout << "Animal sounds ......." << std::endl;
+}
+
