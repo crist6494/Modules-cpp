@@ -6,11 +6,11 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:52:30 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 17:30:49 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/11 20:36:54 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
@@ -18,40 +18,30 @@
 
 /* void	ft_leaks (void)
 {
- 	system("leaks -q animal");
+ 	system("leaks -q abstract");
 } */
 
 int main()
 {
-	std::cout << std::endl;
-	const Animal* anm = new Animal();
-	const Animal* d = new Dog();
-	const Animal* c = new Cat();
-
 	//atexit(ft_leaks);
-	std::cout << anm->getType() << " " << std::endl;
-	std::cout << d->getType() << " " << std::endl;
-	std::cout << c->getType() << " " << std::endl;
-	anm->makeSound();
-	d->makeSound();
-	c->makeSound(); //will output the cat sound!
-
-	delete anm;
-	delete d;
-	delete c;
-	
 	std::cout << std::endl;
-	const WrongAnimal* anmWrong = new WrongAnimal();
-	const WrongAnimal* cWrong = new WrongCat();
+    AAnimal *a = new Dog();
+    AAnimal *b = new Cat();
 
-	std::cout << anmWrong->getType() << " " << std::endl;
-	std::cout << cWrong->getType() << " " << std::endl;
-	anmWrong->makeSound();
-	cWrong->makeSound(); //will output the animal sound!
+	a->getType();
+	b->getType();
 
-	delete anmWrong;
-	delete cWrong;
 	std::cout << std::endl;
-	
-	return 0;
+    
+    a->makeSound();
+    b->makeSound();
+
+	std::cout << std::endl;
+
+    delete a;
+    delete b;
+	std::cout << std::endl;
+
+    return 0;
 }
+

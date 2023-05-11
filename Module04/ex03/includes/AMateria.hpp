@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 11:30:01 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 20:13:57 by cmorales         ###   ########.fr       */
+/*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
+/*   Updated: 2023/05/11 20:52:04 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_H
-# define WRONGANIMAL_H
+#ifndef AMATERIA_H
+# define AMATERIA_H
 
-#include <iostream>
-
-class WrongAnimal
+class AMateria
 {
 	protected:
 		std::string _type;
 	public:
-		WrongAnimal();
-		~WrongAnimal();
-		WrongAnimal(const WrongAnimal& src);
-		WrongAnimal& operator=(const WrongAnimal& src);
-		
-		std::string getType() const;
-		void makeSound() const;
+	AMateria(std::string const & type);
+	AMateria();
+	virtual ~AMateria();
+	AMateria(const AMateria& src);
+	AMateria& operator=(const AMateria& src)
+
+	std::string const & getType() const;
+	
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter& target);
 };
 
 #endif

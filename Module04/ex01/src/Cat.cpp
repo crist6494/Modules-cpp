@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:43:30 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 17:25:24 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/11 19:11:27 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ Cat::Cat()
 {
 	this->_type = "Cat";
 	std::cout<<"Default constructor called from Cat"<<std::endl;
+	this->_catBrain = new Brain();
 }
 
 Cat::~Cat()
 {
 	std::cout<<"Destructor called from Cat" <<std::endl;
+	delete this->_catBrain;
 }
 
 Cat::Cat(const Cat& src)

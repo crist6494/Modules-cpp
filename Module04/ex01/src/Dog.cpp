@@ -1,44 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 19:43:30 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 17:25:24 by cmorales         ###   ########.fr       */
+/*   Created: 2023/05/08 19:43:27 by cmorales          #+#    #+#             */
+/*   Updated: 2023/05/11 19:11:34 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat()
+Dog::Dog()
 	:Animal()
 {
-	this->_type = "Cat";
-	std::cout<<"Default constructor called from Cat"<<std::endl;
+	this->_type = "Dog";
+	std::cout<<"Default constructor called from Dog"<<std::endl;
+	this->_dogBrain = new Brain();
 }
 
-Cat::~Cat()
+Dog::~Dog()
 {
-	std::cout<<"Destructor called from Cat" <<std::endl;
+	std::cout<<"Destructor called from Dog " <<std::endl;
+	delete this->_dogBrain;
 }
 
-Cat::Cat(const Cat& src)
+Dog::Dog(const Dog& src)
 	:Animal(src)
 {
-	std::cout<<"Copy constructor called from Cat" <<std::endl;
+	std::cout<<"Copy constructor called from Dog"<<std::endl;
 }
 
-Cat& Cat::operator=(const Cat& src)
+Dog& Dog::operator=(const Dog& src)
 {
-	std::cout<<"Assignation operator called from Cat" <<std::endl;
+	std::cout<<"Assignation operator called from Dog"<<std::endl;
 	Animal::operator=(src);
 	return *this;
 }
 
-void Cat::makeSound() const
+void Dog::makeSound() const
 {
-	std::cout << "Meauww Meauww !!!" << std::endl;
+	std::cout << "Guuau guuau !!!" << std::endl;
 }
 

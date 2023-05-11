@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 11:30:01 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 20:13:57 by cmorales         ###   ########.fr       */
+/*   Created: 2023/05/11 18:18:22 by cmorales          #+#    #+#             */
+/*   Updated: 2023/05/11 18:30:33 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_H
-# define WRONGANIMAL_H
+#ifndef BRAIN_H
+# define BRAIN_H
 
 #include <iostream>
+#include <string>
 
-class WrongAnimal
+class Brain
 {
-	protected:
-		std::string _type;
+	private:
+		static const unsigned int n_ideas = 100; 
 	public:
-		WrongAnimal();
-		~WrongAnimal();
-		WrongAnimal(const WrongAnimal& src);
-		WrongAnimal& operator=(const WrongAnimal& src);
-		
-		std::string getType() const;
-		void makeSound() const;
+		std::string ideas[n_ideas];
+		Brain();
+		~Brain();
+		Brain(const Brain& src);
+		Brain& operator=(const Brain& src);
 };
 
 #endif

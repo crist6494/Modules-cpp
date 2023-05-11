@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:52:30 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 17:30:49 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/11 20:14:28 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,38 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-/* void	ft_leaks (void)
+/*void	ft_leaks (void)
 {
- 	system("leaks -q animal");
-} */
+ 	system("leaks -q brain");
+}*/
 
 int main()
 {
 	std::cout << std::endl;
-	const Animal* anm = new Animal();
-	const Animal* d = new Dog();
-	const Animal* c = new Cat();
+	const unsigned int n_animals = 6;
+	Animal *animals[n_animals];
 
 	//atexit(ft_leaks);
-	std::cout << anm->getType() << " " << std::endl;
-	std::cout << d->getType() << " " << std::endl;
-	std::cout << c->getType() << " " << std::endl;
-	anm->makeSound();
-	d->makeSound();
-	c->makeSound(); //will output the cat sound!
 
-	delete anm;
-	delete d;
-	delete c;
-	
-	std::cout << std::endl;
-	const WrongAnimal* anmWrong = new WrongAnimal();
-	const WrongAnimal* cWrong = new WrongCat();
+	for(unsigned int i = 0; i < n_animals; i++)
+    {
+        if(i % 2 == 0)
+		{
+            animals[i] = new Dog();
+			std::cout << std::endl;
+		}
+        else
+		{
+            animals[i] = new Cat();
+			std::cout << std::endl;
+		}
+    }
 
-	std::cout << anmWrong->getType() << " " << std::endl;
-	std::cout << cWrong->getType() << " " << std::endl;
-	anmWrong->makeSound();
-	cWrong->makeSound(); //will output the animal sound!
-
-	delete anmWrong;
-	delete cWrong;
-	std::cout << std::endl;
+    for(unsigned int i = 0; i < n_animals; i++)
+    {
+        delete animals[i];
+		std::cout << std::endl;
+    }
 	
 	return 0;
 }
