@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:59:45 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/10 18:26:44 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/11 10:48:23 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@ Animal::Animal()
 {
 	this->_type = "";
 	std::cout<<"Default constructor called from Animal: NO NAME"<<std::endl;
-}
-
-Animal::Animal(std::string name)
-{
-	this->_name = name;
-	this->_type = "";
-	std::cout<<"Constructor with parameters called from Animal: "<< this->_name <<std::endl;
 }
 
 Animal::~Animal()
@@ -40,7 +33,6 @@ Animal& Animal::operator=(const Animal& src)
 {
 	std::cout<<"Assignation operator called from Animal"<<std::endl;
 	this->_type = src._type;
-	this->_name = src._name;
 	return *this;
 }
 
@@ -51,6 +43,6 @@ std::string Animal::getType() const
 
 void Animal::makeSound() const
 {
-	std::cout << this->_name << " make a sound ....." << std::endl;
+	std::cout << "An animal make a sound ....." << std::endl;
 }
 

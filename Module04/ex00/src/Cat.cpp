@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:43:30 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/10 18:27:12 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/11 10:44:53 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@ Cat::Cat()
 {
 	this->_type = "Cat";
 	std::cout<<"Default constructor called from Cat: NO NAME"<<std::endl;
-}
-
-Cat::Cat(const std::string& name) :Animal(name)
-{
-	this->_type = "Cat";
-	this->_name = name;
-	std::cout<<"Constructor with parameters called from Cat: "<< this->_name <<std::endl;
 }
 
 Cat::~Cat()

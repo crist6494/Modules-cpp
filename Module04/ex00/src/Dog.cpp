@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:43:27 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/10 18:27:28 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/11 10:44:59 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@ Dog::Dog()
 {
 	this->_type = "Dog";
 	std::cout<<"Default constructor called from Dog: NO NAME"<<std::endl;
-}
-
-Dog::Dog(const std::string& name)
-	:Animal(name)
-{
-	this->_type = "Dog";
-	this->_name = name;
-	std::cout<<"Constructor with parameters called from Dog: "<< this->_name <<std::endl;
 }
 
 Dog::~Dog()
