@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 20:30:51 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/02 18:45:11 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 17:19:45 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int main()
 	p1.beRepaired(7);
 	p2.beRepaired(7);
 	p3.beRepaired(20);
+	p3.takeDamage(6);
 	std::cout << std::endl;
 
 	std::cout << "After the attacks" << std::endl;

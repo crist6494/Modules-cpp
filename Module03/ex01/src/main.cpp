@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 20:30:51 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/02 22:13:22 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 17:23:15 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ int main()
 	std::cout << std::endl;
 	
 	ScavTrap p4(p2);
-	std::cout <<p4.getName();
-	std::cout <<p4.getAttackDamage();
+	std::cout << p4.getName();
 	std::cout << std::endl;
+	std::cout << p4.getAttackDamage();
+	std::cout << std::endl << std::endl;
 	
 	return 0;
 }

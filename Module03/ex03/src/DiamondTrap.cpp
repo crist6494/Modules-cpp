@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 23:09:23 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/08 19:01:32 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:06:48 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void DiamondTrap::whoAmI()
 }
 
 void DiamondTrap::attack(const std::string& target)
-{
+{1
 	this->ScavTrap::attack(target);
 }
 
@@ -66,6 +66,6 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& obj)
 	ClapTrap::operator=(obj);
 	FragTrap::operator=(obj);
 	ScavTrap::operator=(obj);
-	std::cout<<"Assignation operator called from DiamondTrap"<<std::endl;
+	std::cout<< "Assignation operator called from DiamondTrap" <<std::endl;
 	return *this;
 }

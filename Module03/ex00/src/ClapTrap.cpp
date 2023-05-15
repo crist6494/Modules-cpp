@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 20:37:23 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/28 19:38:26 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 17:33:15 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ClapTrap::ClapTrap()
 	: _hitpoints(10), _energypoints(10), _attackdamage(0)
 {
-	std::cout<<"Default constructor called"<<std::endl;
+	std::cout<<"Default constructor called from Claptrap"<<std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap& src)
 {
-	std::cout<<"Copy constructor called"<<std::endl;
+	std::cout<<"Copy constructor called from ClapTrap"<<std::endl;
 	*this = src;
 }
 
@@ -102,7 +102,7 @@ unsigned int ClapTrap::getAttackDamage() const
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
 {
-	std::cout<<"Assignation operator called "<<std::endl;
+	std::cout<<"Assignation operator called from ClapTrap"<<std::endl;
 	this->_name = obj._name;
 	this->_attackdamage = obj._attackdamage;
 	this->_energypoints = obj._energypoints;

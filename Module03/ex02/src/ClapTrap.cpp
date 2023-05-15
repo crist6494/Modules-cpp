@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 20:37:23 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/02 18:44:25 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 17:32:14 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ unsigned int ClapTrap::getAttackDamage() const
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
 {
-	std::cout<<"Assignation operator called "<<std::endl;
+	std::cout<<"Assignation operator called from ClapTrap"<<std::endl;
 	this->_name = obj._name;
 	this->_attackdamage = obj._attackdamage;
 	this->_energypoints = obj._energypoints;

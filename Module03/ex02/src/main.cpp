@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 20:30:51 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/02 22:36:55 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 17:31:42 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ int main()
 	p1.highFivesGuys();
 	p2.highFivesGuys();
 	p3.highFivesGuys();
+	std::cout << std::endl;
+	std::cout << std::endl;
+	FragTrap p5;
+	p5 = p3;
+	std::cout << std::endl;
+	p5.FragTrap_Dates();
 	std::cout << std::endl;
 	return 0;
 }

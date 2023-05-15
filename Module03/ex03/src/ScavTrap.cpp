@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 20:27:48 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/04 19:58:22 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:05:32 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& obj)
 void ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode." << std::endl;
+	this->_energypoints--;
 }
 
 void ScavTrap::ScavTrap_Dates() const

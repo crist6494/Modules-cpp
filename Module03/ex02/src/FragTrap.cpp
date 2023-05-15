@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:16:08 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/02 22:34:36 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 17:37:01 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ FragTrap& FragTrap::operator=(const FragTrap& obj)
 {
 	std::cout<<"Assignation operator called from FragTrap"<<std::endl;
 	ClapTrap::operator=(obj);
-	return *this;	
+	return *this;
 }
 
 void FragTrap::FragTrap_Dates() const
