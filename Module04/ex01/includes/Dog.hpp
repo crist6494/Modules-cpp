@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:42:19 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 18:21:22 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:06:59 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Dog : public Animal
 		Dog();
 		~Dog();
 		Dog(const Dog& src);
+
 		Dog& operator=(const Dog& src);
 
 		void makeSound() const;

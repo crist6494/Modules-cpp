@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:36 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 20:51:15 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:24:16 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,5 @@ std::string const & AMateria::getType() const
 {
 	return this->_type;
 }
+
+//virtual void use(ICharacter& target)

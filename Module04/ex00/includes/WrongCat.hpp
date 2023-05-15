@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 11:30:04 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 11:39:02 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:07:14 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class WrongCat : public WrongAnimal
 		WrongCat();
 		~WrongCat();
 		WrongCat(const WrongCat& src);
+		
 		WrongCat& operator=(const WrongCat& src);
 		
 		void makeSound() const;

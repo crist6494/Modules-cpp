@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 11:30:01 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 20:12:53 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:07:02 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class WrongAnimal
 		WrongAnimal();
 		~WrongAnimal();
 		WrongAnimal(const WrongAnimal& src);
+		
 		WrongAnimal& operator=(const WrongAnimal& src);
 		
 		std::string getType() const;

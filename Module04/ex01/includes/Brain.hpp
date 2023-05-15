@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:18:22 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 18:30:33 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:06:53 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ class Brain
 		static const unsigned int n_ideas = 100; 
 	public:
 		std::string ideas[n_ideas];
+		
 		Brain();
 		~Brain();
 		Brain(const Brain& src);
+
 		Brain& operator=(const Brain& src);
 };
 

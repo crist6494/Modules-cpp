@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 20:52:04 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 20:30:18 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,18 @@ class AMateria
 	protected:
 		std::string _type;
 	public:
-	AMateria(std::string const & type);
-	AMateria();
-	virtual ~AMateria();
-	AMateria(const AMateria& src);
-	AMateria& operator=(const AMateria& src)
+		AMateria(std::string const & type);
+		
+		AMateria();
+		virtual ~AMateria();
+		AMateria(const AMateria& src);
+		
+		AMateria& operator=(const AMateria& src)
 
-	std::string const & getType() const;
-	
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target);
+		std::string const & getType() const;
+		
+		virtual void use(ICharacter& target);
+		virtual AMateria* clone() const = 0;
 };
 
 #endif

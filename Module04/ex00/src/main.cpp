@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:52:30 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 17:30:49 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:36:47 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-/* void	ft_leaks (void)
+/*  void	ft_leaks (void)
 {
  	system("leaks -q animal");
-} */
+}  */
 
 int main()
 {

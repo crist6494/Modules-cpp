@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:55:17 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/11 20:34:20 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:09:19 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class AAnimal
 		AAnimal();
 		virtual ~AAnimal();
 		AAnimal(const AAnimal& src);
+		
 		AAnimal& operator=(const AAnimal& src);
 		
 		std::string getType() const;

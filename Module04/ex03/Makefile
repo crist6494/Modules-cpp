@@ -7,7 +7,7 @@ SRCS_DIR = ./src/
 OBJS_DIR = ./obj/
 INC = ./includes/
 
-SRCS = main.cpp AMateria.cpp
+SRCS = main.cpp AMateria.cpp Ice.cpp Cure.cpp
 
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
 
