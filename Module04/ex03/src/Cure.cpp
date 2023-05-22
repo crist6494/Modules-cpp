@@ -6,25 +6,25 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:24:46 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/15 19:53:02 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/16 20:12:19 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
 Cure::Cure()
-	:AMateria("cure");
+	:AMateria("cure")
 {
-	std::cout << "Default constructor called from Cure" < <std::endl;
+	std::cout << "Default constructor called from Cure" << std::endl;
 }
 
-virtual Cure::~Cure()
+Cure::~Cure()
 {
 	std::cout << "Destructor called from Cure" << std::endl;
 }
 
 Cure::Cure(const Cure& src)
-	:AMateria(src);
+	:AMateria(src)
 {
 	std::cout << "Copy constructor called from Cure" <<std::endl;
 	*this = src;
@@ -41,11 +41,11 @@ AMateria* Cure::clone() const
 {
 	Cure *cure = new Cure();
 	
-	return cure;4
+	return cure;
 }
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at <name> *" << std::endl;
+	std::cout << "* heals" << target.getName() << " ’s wounds *" << std::endl;
 }
 

@@ -6,25 +6,25 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:24:28 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/15 19:52:30 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/16 20:13:09 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
 Ice::Ice()
-	:AMateria("ice");
+	:AMateria("ice")
 {
-	std::cout << "Default constructor called from Ice" < <std::endl;
+	std::cout << "Default constructor called from Ice" << std::endl;
 }
 
-virtual Ice::~Ice()
+Ice::~Ice()
 {
 	std::cout << "Destructor called from Ice" << std::endl;
 }
 
 Ice::Ice(const Ice& src)
-	:AMateria(src);
+	:AMateria(src)
 {
 	std::cout << "Copy constructor called from Ice" <<std::endl;
 	*this = src;
@@ -46,5 +46,5 @@ AMateria* Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
-	std::cout << "" << std::endl;
+	std::cout << "* shoots an ice bolt at" << target.getName() << "*"<< std::endl;
 }
