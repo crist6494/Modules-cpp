@@ -1,7 +1,7 @@
 NAME = interface
 
 CPP = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
 SRCS_DIR = ./src/
 OBJS_DIR = ./obj/

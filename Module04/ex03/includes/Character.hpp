@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:09:25 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/18 20:01:18 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/22 20:36:34 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ class Character : public ICharacter
 		Character(std::string const &name);
   		Character();
   		~Character();
-    	Character(Character const &src);
+    	Character(const Character &src);
 
-	    Character& operator=(Character const &src);
+	    Character& operator=(const Character &src);
 		
 		std::string const & getName() const;
 		void equip(AMateria* m);

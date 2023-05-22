@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:24:46 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/16 20:12:19 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/22 20:51:54 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ AMateria* Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* heals" << target.getName() << " ’s wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << " ’s wounds *" << std::endl;
 }
 

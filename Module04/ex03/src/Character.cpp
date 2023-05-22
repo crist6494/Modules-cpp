@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:11:47 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/21 17:17:36 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/05/22 20:41:27 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,8 @@ Character::~Character()
 	}
 }
 
-Character::Character (Character const &src)
+Character::Character (const Character &src)
 {
-	
 	del_list = NULL;
 	copyDeleteList(src.del_list);
 	for(unsigned int i = 0; i < 4; i++)
@@ -53,6 +52,7 @@ Character::Character (Character const &src)
 		_inventory[i] = NULL;
 	}
 	*this = src;
+	std::cout<<"Copy constructor called from Character: " << this->_name <<std::endl;
 }
 
 Character& Character::operator=(const Character& src)
@@ -60,17 +60,35 @@ Character& Character::operator=(const Character& src)
 	if(this != &src)
 	{
 		this->_name = src._name;
-		std::cout << "Assignation operator called from Character: " << this->_name << std::endl;
 		for (int i = 0; i < 4; i++)
 		{
 			if (this->_inventory[i])
 			{
 				delete this->_inventory[i];
 				this->_inventory[i] = NULL;
-				this->_inventory[i] = src._inventory[i]->clone();
+				if(this->_inventory[i] == NULL)
+				{
+					if(typeid(*(src._inventory[i])).name() == typeid(Ice).name())
+					{
+						std::cout<<"Assigning ice"<<std::endl;
+						this->_inventory[i] = new Ice();
+						*(this->_inventory[i]) = *(src._inventory[i]);
+					}
+					else if(typeid(*(src._inventory[i])).name() == typeid(Cure).name())
+					{
+						std::cout<<"Assigning cure"<<std::endl;
+						this->_inventory[i] = new Cure();
+						*(this->_inventory[i]) = *(src._inventory[i]);
+					}
+					else
+					{
+						std::cout<<"Non existing AMateria"<<std::endl;
+					}
+				}
 			}
 		}
 	}
+	std::cout << "Assignation operator called from Character: " << this->_name << std::endl;
 	return *this;
 }
 
@@ -135,6 +153,7 @@ void Character::use(int idx, ICharacter& target)
 		std::cout << "Character: " << this->_name << " can't use this inventary" << std::endl; 
 }
 
+/*Guarada memoria para crear la lista, asigna la materia y el nxt y lo añade a la lista*/
 void Character::addElementDelete(AMateria *materia)
 {
 	t_materias *aux;
@@ -145,6 +164,7 @@ void Character::addElementDelete(AMateria *materia)
 	del_list = aux;
 }
 
+/*Libera la clases materia y luego el la lista con el aux*/
 void Character::removeList(void)
 {
 	t_materias *aux;
@@ -158,10 +178,12 @@ void Character::removeList(void)
 	}
 }
 
+/*Copiar la lista de borrar en el constructor de copia aux es 
+de la lista y aux2 la refenrecia donde se va a copiar*/
 void Character::copyDeleteList(t_materias *dl)
 {
-
 	t_materias *aux, *aux2;
+	
 	if(dl == NULL)
 	{
 		return ;
@@ -184,10 +206,12 @@ void Character::copyDeleteList(t_materias *dl)
 			else if(typeid(*(aux->materia)).name() == typeid(Cure).name())
 			{
 				std::cout<<"Assigning cure"<<std::endl;
-				aux->materia = new Cure();
+				aux2->materia = new Cure();
 				*(aux2->materia) = *(aux->materia);
-				aux = NULL;
+				aux2->nxt = NULL;
 			}
+			//Verificamos si hay algun elemento en la lista
+			//si lo hay se guarda memoria para el sig y se avanza
 			aux = aux->nxt;
 			if(aux != NULL)
 			{
