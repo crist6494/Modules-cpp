@@ -1,41 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/09 16:56:35 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:57:10 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_H
-# define AMATERIA_H
+#include "Bureaucrat.hpp"
 
-#include <iostream>
-#include <string>
-#include "ICharacter.hpp"
-
-class ICharacter;
-
-class AMateria
+int main()
 {
-	protected:
-		std::string _type;
-	public:
-		AMateria(std::string const & type);
-		
-		AMateria();
-		virtual ~AMateria();
-		AMateria(const AMateria& src);
-		
-		AMateria& operator=(const AMateria& src);
-
-		std::string const & getType() const;
-		
-		virtual void use(ICharacter& target);
-		virtual AMateria* clone() const = 0;
-};
-
-#endif
+	//Bureaucrat b;
+	std::cout << "Hola que tal\n";
+}
