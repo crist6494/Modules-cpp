@@ -6,19 +6,33 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/10 10:51:18 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/10 20:14:05 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
-	:_name("Manuel")
 {
-	this->_grade = 0;
-	if(this->_grade == 0)
-		throw 1;
 	std::cout<<"Default constructor called from Bureaucrat"<<std::endl;
+	return ;
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade)
+	:_name(name), _grade(grade)
+{
+	std::cout<<"Default constructor with (parameters) called from Bureaucrat"<<std::endl;
+	try{
+		if(this->_grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+		if(this->_grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const Bureaucrat::GradeTooHighException& exception)
+	{
+		std::cerr << RED << "Error: " << exception.what() << std::endl << RESET;
+	}
+	
 }
 
 Bureaucrat::~Bureaucrat()
@@ -40,6 +54,20 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 	this->_grade = src._grade;
 	return *this;
 }
+
+
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Grade is too high (1 is the highest)";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Grade is too low (150 is the lowest)";
+}
+
+
 
 const std::string Bureaucrat::getName() const
 {

@@ -20,7 +20,7 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp
 	@$(CPP) $(CPPFLAGS) -I $(INC) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CPP) $(OBJS) -o $@
+	@$(CPP) $(OBJS) -o $@
 
 clean:
 	@rm -rf obj $(OBJS)
