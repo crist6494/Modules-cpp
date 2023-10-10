@@ -7,29 +7,29 @@ SRCS_DIR = ./src/
 OBJS_DIR = ./obj/
 INC = ./includes/
 
-SRCS = Bureaucrat.cpp main.cpp
+SRCS = main.cpp Bureaucrat.cpp
 
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
 
 all: obj $(NAME)
 
 obj:
-	mkdir -p $(OBJS_DIR)
+	@mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp
-	$(CPP) $(CPPFLAGS) -I $(INC) -c $< -o $@
+	@$(CPP) $(CPPFLAGS) -I $(INC) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CPP) $(OBJS) -o $(NAME)
+	$(CPP) $(OBJS) -o $@
 
 clean:
-	rm -rf obj $(OBJS)
+	@rm -rf obj $(OBJS)
 
-fclean : clean
-	rm -rf $(NAME)
+fclean: clean
+	@rm -rf $(NAME)
 
 re: fclean
-	make all
+	@make all
 
 r: re
 	@./$(NAME)
