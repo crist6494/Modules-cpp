@@ -5,32 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/11 11:29:09 by cmorales         ###   ########.fr       */
+/*   Created: 2023/10/11 11:29:42 by cmorales          #+#    #+#             */
+/*   Updated: 2023/10/11 11:59:07 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
-	try{
-		Bureaucrat j("Juan", 149);
-		Bureaucrat c("Cristobal", 2);
-		std::cout << j;
-		std::cout << c;
-		j.decrementGrade(1);
-		std::cout << j;
-		c.incrementGrade(1);
-		std::cout << c;
-	}
-	catch(const Bureaucrat::GradeTooLowException& exception)
-	{
-		std::cerr << RED << "Error: " << exception.what() << std::endl << RESET;
-	}
-	catch(const Bureaucrat::GradeTooHighException& exception)
-	{
-		std::cerr << RED << "Error: " << exception.what() << std::endl << RESET;
-	}
-	return 0;
+	std::cout << "Hola que tal\n";
 }
