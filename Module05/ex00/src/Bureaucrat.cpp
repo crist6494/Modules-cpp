@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/11 11:28:35 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:31:20 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ Bureaucrat::~Bureaucrat()
 	std::cout << RED <<"Destructor called from Bureaucrat: "<< this->_name <<std::endl <<RESET;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src)
-	:_name(src._name), _grade(src._grade)
+Bureaucrat::Bureaucrat(const Bureaucrat& cpy)
+	:_name(cpy._name), _grade(cpy._grade)
 {
 	std::cout<<"Copy constructor called from Bureaucrat"<<std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 {
+	std::cout<<"Assignation operator called from Bureacrat"<<std::endl;
 	if(this == &src)
 		return *this;
-	std::cout<<"Assignation operator called from Bureacrat"<<std::endl;
 	this->_grade = src._grade;
 	return *this;
 }

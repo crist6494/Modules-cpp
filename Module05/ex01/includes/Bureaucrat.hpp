@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/11 10:59:23 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:35:01 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat
 		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		~Bureaucrat();
-		Bureaucrat(const Bureaucrat& src);
+		Bureaucrat(const Bureaucrat& cpy);
 		
 		Bureaucrat& operator=(const Bureaucrat& src);
 
