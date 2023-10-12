@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/11 18:35:01 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/11 23:10:14 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& src);
 
 		int	getGrade() const;
-		const std::string getName() const;
+		std::string getName() const;
 
 		class GradeTooHighException : public std::exception
 		{

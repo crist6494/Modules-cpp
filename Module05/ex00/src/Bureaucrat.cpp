@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/11 18:31:20 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/12 11:54:19 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,15 @@ Bureaucrat::~Bureaucrat()
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& cpy)
-	:_name(cpy._name), _grade(cpy._grade)
+	:_name(cpy._name)
 {
-	std::cout<<"Copy constructor called from Bureaucrat"<<std::endl;
+	std::cout << YELLOW <<"Copy constructor called, copy obj: " << cpy._name <<std::endl << RESET;
+	*this = cpy;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 {
-	std::cout<<"Assignation operator called from Bureacrat"<<std::endl;
+	std::cout << YELLOW <<"Assignation operator called, assigns the object: " << src._name <<std::endl << RESET;
 	if(this == &src)
 		return *this;
 	this->_grade = src._grade;
@@ -63,7 +64,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 
 
-const std::string Bureaucrat::getName() const
+std::string Bureaucrat::getName() const
 {
 	return this->_name;
 }

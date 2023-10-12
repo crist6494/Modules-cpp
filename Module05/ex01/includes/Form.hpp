@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:58:04 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/11 19:59:44 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/12 11:12:49 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ class Form
 {
 private:
 	const std::string _name;
-	const int _grade_sign;
-	const int _grade_execute;
 	bool _signed;
+	const int _gradeExecute;
+	const int _gradeSign;
 public:
 	Form();
+	Form(std::string name, int gradeExecute, int gradeSign);
 	~Form();
 	Form(const Form& cpy);
 
@@ -40,11 +41,12 @@ public:
 		public:
 			virtual const char *what() const throw();
 	};
+	bool getSigned() const;
+	std::string getName() const;
+	int getGradeSign() const;
+	int getGradeExecute() const;
 };
 
-const std::string _name getName();
-const int _grade_sign getGradeSign();
-const int _grade_execute getGradeExecute;
-bool _signed getSigned;
+std::ostream& operator<<(std::ostream& out, const Form& src);
 
 #endif
