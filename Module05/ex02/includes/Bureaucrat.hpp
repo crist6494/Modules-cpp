@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/12 19:02:11 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:12:03 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 # define MAGENTA		"\033[35m"				/* Magenta */
 # define CYAN			"\033[36m"				/* Cyan */
 
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -59,7 +59,7 @@ class Bureaucrat
 		void incrementGrade(int amount);
 		void decrementGrade(int amount);
 
-		void signForm(Form& form);
+		void signForm(AForm& form);
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& src);

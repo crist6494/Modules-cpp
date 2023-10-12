@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,38 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form()
+AForm::AForm()
 	: _name(""),_signed(false), _gradeSign(0), _gradeExecute(0)
 {
-	std::cout<<"Default constructor called from Form"<<std::endl;
+	std::cout<<"Default constructor called from AForm"<<std::endl;
 }
 
-Form::Form(std::string name,int gradeSign, int gradeExecute)
+AForm::AForm(std::string name,int gradeSign, int gradeExecute)
 	:_name(name), _signed(false), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
 {
-	std::cout<<"Default constructor called from Form: " << this->_name <<std::endl;
+	std::cout<<"Default constructor called from AForm: " << this->_name <<std::endl;
 	if((this->_gradeExecute < 1) || (this->_gradeSign < 1))
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	if((this->_gradeExecute > 150) || (this->_gradeSign > 150))
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	std::cout << GREEN << "Object built correctly: "<< this->getName() << std::endl << RESET;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-	std::cout<< RED <<"Destructor called from Form: " << this->_name <<std::endl << RESET;
+	std::cout<< RED <<"Destructor called from AForm: " << this->_name <<std::endl << RESET;
 }
 
-Form::Form(const Form& cpy)
+AForm::AForm(const AForm& cpy)
 	:_name(cpy._name), _gradeSign(cpy._gradeSign), _gradeExecute(cpy._gradeExecute)
 {
 	std::cout << YELLOW <<"Copy constructor called, copy obj: " << cpy._name <<std::endl << RESET;
 	*this = cpy;
 }
 
-Form& Form::operator=(const Form& src)
+AForm& AForm::operator=(const AForm& src)
 {
 	std::cout << YELLOW <<"Assignation operator called, assigns the object: " << src._name <<std::endl << RESET;
 	if(this == &src)
@@ -51,38 +51,38 @@ Form& Form::operator=(const Form& src)
 }
 
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
-	return "Form Grade is too high (1 is the highest)";
+	return "AForm Grade is too high (1 is the highest)";
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
-	return "Form Grade is too low (150 is the lowest)";
+	return "AForm Grade is too low (150 is the lowest)";
 }
 
 
-std::string Form::getName()const
+std::string AForm::getName()const
 {
 	return this->_name;
 }
-int Form::getGradeSign()const
+int AForm::getGradeSign()const
 {
 	return this->_gradeSign;
 }
-int Form::getGradeExecute()const
+int AForm::getGradeExecute()const
 {
 	return this->_gradeExecute;
 }
-bool Form::getSigned()const
+bool AForm::getSigned()const
 {
 	return this->_signed;
 }
 
 
-std::ostream& operator<<(std::ostream& out, const Form& src)
+std::ostream& operator<<(std::ostream& out, const AForm& src)
 {
-	out << CYAN << "Form name: " << src.getName() << std::endl;
+	out << CYAN << "AForm name: " << src.getName() << std::endl;
 	out << CYAN << "Signed: " << src.getSigned() << std::endl;
 	out << CYAN << "GradeSign: " << src.getGradeSign() << std::endl;
 	out << CYAN << "GradeExecute: " << src.getGradeExecute() << std::endl << RESET;
@@ -90,7 +90,7 @@ std::ostream& operator<<(std::ostream& out, const Form& src)
 }
 
 
-void Form::beSigned(const Bureaucrat& bc)
+void AForm::beSigned(const Bureaucrat& bc)
 {
 	if(bc.getGrade() <= this->getGradeSign())
 	{
@@ -98,5 +98,5 @@ void Form::beSigned(const Bureaucrat& bc)
 		std::cout <<MAGENTA << this->getName() << " is signed by " << bc.getName() << std::endl << RESET;
 	}
 	else
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }

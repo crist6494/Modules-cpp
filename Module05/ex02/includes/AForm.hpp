@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:58:04 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/12 20:07:36 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:00:24 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 private:
 	const std::string _name;
@@ -25,12 +25,12 @@ private:
 	const int _gradeSign;
 	const int _gradeExecute;
 public:
-	Form();
-	Form(std::string name, int gradeSign, int gradeExecute);
-	~Form();
-	Form(const Form& cpy);
+	AForm();
+	AForm(std::string name, int gradeSign, int gradeExecute);
+	~AForm();
+	AForm(const AForm& cpy);
 
-	Form& operator=(const Form& src);
+	AForm& operator=(const AForm& src);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -51,6 +51,6 @@ public:
 	void beSigned(const Bureaucrat& bc);
 };
 
-std::ostream& operator<<(std::ostream& out, const Form& src);
+std::ostream& operator<<(std::ostream& out, const AForm& src);
 
 #endif
