@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 20:07:27 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/14 13:16:12 by cmorales         ###   ########.fr       */
+/*   Created: 2023/10/14 13:16:59 by cmorales          #+#    #+#             */
+/*   Updated: 2023/10/14 13:27:54 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
 
 class AForm;
 
-class ShrubberyCreationForm : public AForm
+class  RobotomyRequestForm : public AForm
 {
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(std::string target);
-		ShrubberyCreationForm(const ShrubberyCreationForm& cpy);
-		~ShrubberyCreationForm();
-		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& src);
+		 RobotomyRequestForm();
+		 RobotomyRequestForm(std::string target);
+		 RobotomyRequestForm(const  RobotomyRequestForm& cpy);
+		~ RobotomyRequestForm();
+		 RobotomyRequestForm& operator=(const  RobotomyRequestForm& src);
 };
 
 #endif

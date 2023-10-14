@@ -26,7 +26,7 @@ AForm::AForm(std::string name,int gradeSign, int gradeExecute)
 		throw AForm::GradeTooHighException();
 	if((this->_gradeExecute > 150) || (this->_gradeSign > 150))
 		throw AForm::GradeTooLowException();
-	std::cout << GREEN << "Object built correctly: "<< this->getName() << std::endl << RESET;
+	std::cout << GREEN << "Object form built correctly: "<< this->getName() << std::endl << RESET;
 }
 
 AForm::~AForm()
@@ -37,13 +37,13 @@ AForm::~AForm()
 AForm::AForm(const AForm& cpy)
 	:_name(cpy._name), _gradeSign(cpy._gradeSign), _gradeExecute(cpy._gradeExecute)
 {
-	std::cout << YELLOW <<"Copy constructor called, copy obj: " << cpy._name <<std::endl << RESET;
+	std::cout << YELLOW <<"Copy constructor called from AForm, copy obj: " << cpy._name <<std::endl << RESET;
 	*this = cpy;
 }
 
 AForm& AForm::operator=(const AForm& src)
 {
-	std::cout << YELLOW <<"Assignation operator called, assigns the object: " << src._name <<std::endl << RESET;
+	std::cout << YELLOW <<"Assignation operator called from AForm, assigns the object: " << src._name <<std::endl << RESET;
 	if(this == &src)
 		return *this;
 	this->_signed = src._signed;

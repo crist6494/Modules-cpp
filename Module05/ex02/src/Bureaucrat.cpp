@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/12 20:12:37 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/14 13:30:14 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 			throw Bureaucrat::GradeTooHighException();
 		if(this->_grade > 150)
 			throw Bureaucrat::GradeTooLowException();
-	std::cout << GREEN << "Object built correctly: "<< this->getName() << std::endl << RESET;
+	std::cout << GREEN << "Object bureaucrat built correctly: "<< this->getName() << std::endl << RESET;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -37,13 +37,13 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat::Bureaucrat(const Bureaucrat& cpy)
 	:_name(cpy._name)
 {
-	std::cout << YELLOW <<"Copy constructor called, copy obj: " << cpy._name <<std::endl << RESET;
+	std::cout << YELLOW <<"Copy constructor called from Bureaucrat, copy obj: " << cpy._name <<std::endl << RESET;
 	*this = cpy;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 {
-	std::cout << YELLOW <<"Assignation operator called, assigns the object: " << src._name <<std::endl << RESET;
+	std::cout << YELLOW <<"Assignation operator called form Bureaucrat, assigns the object: " << src._name <<std::endl << RESET;
 	if(this == &src)
 		return *this;
 	this->_grade = src._grade;

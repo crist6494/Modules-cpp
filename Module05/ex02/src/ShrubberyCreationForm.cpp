@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 20:07:24 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/12 20:16:23 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/14 13:35:53 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,34 +18,30 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 	std::cout<<"Default constructor called from ShrubberyCreationForm"<<std::endl;
 }
 
-/* ShrubberyCreationForm::ShrubberyCreationForm(std::string name,int gradeSign, int gradeExecute)
-	:_name(name), _signed(false), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+	:AForm(target, 72, 45)
 {
-	std::cout<<"Default constructor called from ShrubberyCreationForm: " << this->_name <<std::endl;
-	if((this->_gradeExecute < 1) || (this->_gradeSign < 1))
-		throw ShrubberyCreationForm::GradeTooHighException();
-	if((this->_gradeExecute > 150) || (this->_gradeSign > 150))
-		throw ShrubberyCreationForm::GradeTooLowException();
-	std::cout << GREEN << "Object built correctly: "<< this->getName() << std::endl << RESET;
-} */
+	std::cout<<"Default constructor called from ShrubberyCreationForm: " << this->getName() <<std::endl;
+}
+
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout<< RED <<"Destructor called from ShrubberyCreationForm: " << this->_name <<std::endl << RESET;
+	std::cout<< RED <<"Destructor called from ShrubberyCreationForm: " << this->getName() <<std::endl << RESET;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& cpy)
-	:_name(cpy._name), _gradeSign(cpy._gradeSign), _gradeExecute(cpy._gradeExecute)
+	:AForm(cpy)
 {
-	std::cout << YELLOW <<"Copy constructor called, copy obj: " << cpy._name <<std::endl << RESET;
+	std::cout << YELLOW <<"Copy constructor called from ShrubberyCreationForm, copy obj: " << cpy.getName() <<std::endl << RESET;
 	*this = cpy;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& src)
 {
-	std::cout << YELLOW <<"Assignation operator called, assigns the object: " << src._name <<std::endl << RESET;
+	std::cout << YELLOW <<"Assignation operator called from ShrubberyCreationForm, assigns the object: " << src.getName() <<std::endl << RESET;
+	AForm::operator=(src);
 	if(this == &src)
 		return *this;
-	this->_signed = src._signed;
 	return *this;
 }
