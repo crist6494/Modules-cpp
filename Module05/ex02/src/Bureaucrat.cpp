@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/14 13:30:14 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/14 21:11:31 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,10 @@ void Bureaucrat::signForm(AForm& form)
 	{
 		std::cout << RED << this->getName() << " couldn’t sign " << form.getName() << " because the bureaucrat's grade is lower than the form's grade to sign" << std::endl << RESET;
 	}
+}
+
+void Bureaucrat::executeForm(const AForm& form)
+{
+	form.execute(*this);
+	std::cout << MAGENTA << this->getName() << " executed " << form.getName() << std::endl << RESET;
 }

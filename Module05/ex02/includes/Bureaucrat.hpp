@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:41:54 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/12 20:12:03 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/14 21:11:22 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ class Bureaucrat
 		void decrementGrade(int amount);
 
 		void signForm(AForm& form);
+		void executeForm(const AForm& form);
+
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& src);

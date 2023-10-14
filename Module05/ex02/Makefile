@@ -23,7 +23,7 @@ $(NAME): $(OBJS)
 	@$(CPP) $(OBJS) -o $(NAME)
 
 clean:
-	@rm -rf obj $(OBJS)
+	@rm -rf obj *_shrubbery $(OBJS)
 
 fclean: clean
 	@rm -rf $(NAME)

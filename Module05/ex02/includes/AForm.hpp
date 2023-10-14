@@ -27,7 +27,7 @@ private:
 public:
 	AForm();
 	AForm(std::string name, int gradeSign, int gradeExecute);
-	~AForm();
+	virtual ~AForm();
 	AForm(const AForm& cpy);
 
 	AForm& operator=(const AForm& src);
@@ -43,12 +43,15 @@ public:
 		public:
 			virtual const char *what() const throw();
 	};
+
 	bool getSigned() const;
 	std::string getName() const;
 	int getGradeSign() const;
 	int getGradeExecute() const;
 
 	void beSigned(const Bureaucrat& bc);
+
+	virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& out, const AForm& src);
