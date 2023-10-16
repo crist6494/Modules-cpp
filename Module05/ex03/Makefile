@@ -1,7 +1,7 @@
 NAME = intern
 
 CPP = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -g -Wall -Werror -Wextra -std=c++98
 
 SRCS_DIR = ./src/
 OBJS_DIR = ./obj/
@@ -30,6 +30,10 @@ fclean: clean
 
 re: fclean
 	@make all
+
+val: all
+	valgrind --leak-check=full ./$(NAME)
+	rm -rf $(NAME).dSYM
 
 r: re
 	@./$(NAME)

@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 20:00:05 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/16 11:52:24 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:20:44 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,26 @@ int main()
 {
 	try
 	{
-		Bureaucrat b("Manu", 44);
+		Bureaucrat b("Manu", 71);
 		ShrubberyCreationForm s("Juan");
 		RobotomyRequestForm d("Felipe");
 		PresidentialPardonForm p("Luis");
 
-		print_dates(b, s);
 		print_dates(b, d);
+		print_dates(b, s);
 		print_dates(b, p);
 	}
 	catch(const AForm::GradeTooHighException& exception)
 	{
-		std::cerr << RED << "Error: " << exception.what() << std::endl << RESET;
+		std::cerr << RED << "ErrSor: " << exception.what() << std::endl << RESET;
 	}
 	catch(const AForm::GradeTooLowException& exception)
 	{
-		std::cerr << RED << "Error: " << exception.what() << std::endl << RESET;
+		std::cerr << RED << "ErrSor: " << exception.what() << std::endl << RESET;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << RED << "Error: " << e.what() << std::endl << RESET;
 	}
+	return 0;
 }

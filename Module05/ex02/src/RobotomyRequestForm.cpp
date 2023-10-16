@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:28:03 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/16 11:45:08 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:12:15 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 	std::srand((time(0))); 
 	randNumber = std::rand();
 	if(randNumber % 2 == 0)
-		std::cout << MAGENTA << this->getTarget() << "has been robotomized successfully" << std::endl << RESET;
+		std::cout << MAGENTA << this->getTarget() << " has been robotomized successfully" << std::endl << RESET;
 	else
 		std::cout << MAGENTA << "the robotomy failed." << std::endl << RESET;
 
