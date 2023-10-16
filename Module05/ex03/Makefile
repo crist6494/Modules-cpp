@@ -1,4 +1,4 @@
-NAME = form
+NAME = intern
 
 CPP = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
@@ -23,7 +23,7 @@ $(NAME): $(OBJS)
 	@$(CPP) $(OBJS) -o $(NAME)
 
 clean:
-	@rm -rf obj $(OBJS)
+	@rm -rf obj *_shrubbery $(OBJS)
 
 fclean: clean
 	@rm -rf $(NAME)
@@ -34,6 +34,4 @@ re: fclean
 r: re
 	@./$(NAME)
 
-.PHONY: all re fclean clean #Se llama a estos targets aunque no esta creado
-
-#: son las dependicas para comprobar si estan actualizado antes de ejecutar la regla
+.PHONY: all re fclean clean

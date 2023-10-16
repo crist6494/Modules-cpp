@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 13:16:59 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/16 10:36:51 by cmorales         ###   ########.fr       */
+/*   Created: 2023/10/12 20:07:27 by cmorales          #+#    #+#             */
+/*   Updated: 2023/10/14 19:40:28 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
-#include <iostream>
-#include <cstdlib>
+#include <fstream>
 
 class AForm;
 
-class  RobotomyRequestForm : public AForm
+class ShrubberyCreationForm : public AForm
 {
 	private:
 		std::string _target;
 	public:
-		RobotomyRequestForm();
-		RobotomyRequestForm(std::string target);
-		RobotomyRequestForm(const  RobotomyRequestForm& cpy);
-		~RobotomyRequestForm();
-		RobotomyRequestForm& operator=(const  RobotomyRequestForm& src);
-		
+		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(const ShrubberyCreationForm& cpy);
+		~ShrubberyCreationForm();
+		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& src);
+
 		std::string getTarget() const;
-		
+
 		void execute(const Bureaucrat& executor) const;
-		 
 };
 
 #endif

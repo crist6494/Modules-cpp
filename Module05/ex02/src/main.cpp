@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 20:00:05 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/14 21:12:49 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:52:24 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,33 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+void print_dates(Bureaucrat& bc, AForm& form)
+{
+	std::cout << std::endl;
+	std::cout << bc;
+	std::cout << "---------------------------\n";
+	std::cout << form;
+	std::cout << "---------------------------\n";
+	bc.signForm(form);
+	std::cout << std::endl;
+	bc.executeForm(form);
+	std::cout << "---------------------------\n";
+	std::cout << std::endl;
+}
+
+
 int main()
 {
 	try
 	{
-		Bureaucrat b("Manu", 2);
-		//AForm f("Form", 45, 32);
+		Bureaucrat b("Manu", 44);
 		ShrubberyCreationForm s("Juan");
 		RobotomyRequestForm d("Felipe");
 		PresidentialPardonForm p("Luis");
-		//std::cout << f;
-		std::cout << "------------\n";
-		std::cout << s;
-		std::cout << "------------\n";
-		std::cout << d;
-		std::cout << "------------\n";
-		std::cout << p;
-		std::cout << "------------\n";
-		b.signForm(s);
-		b.executeForm(s);
+
+		print_dates(b, s);
+		print_dates(b, d);
+		print_dates(b, p);
 	}
 	catch(const AForm::GradeTooHighException& exception)
 	{
