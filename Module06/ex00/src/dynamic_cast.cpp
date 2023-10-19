@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   practica.cpp                                       :+:      :+:    :+:   */
+/*   dynamic_cast.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:50:09 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/18 20:37:30 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/19 20:41:20 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Derivada: public Padre
 };
 
 
-int main()
+/* int main()
 {
 	Derivada d("Juan", 3);
     Padre* p = &d;
@@ -60,4 +60,4 @@ int main()
 		std::cout << "Puntero null\n";
 
    // delete p; // No olvides liberar la memoria asignada con new
-}
+} */
