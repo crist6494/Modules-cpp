@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dynamic_cast.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
+/*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:50:09 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/19 20:41:20 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/24 20:23:23 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ class Padre
 	public:
 		Padre(std::string nombre)
 			:_nombre(nombre){}
-		void getNombre()
+		virtual void getNombre()
 		{
 			std::cout << "Hola que tal\n";
 		}		
-		virtual ~Padre(){};
+		virtual ~Padre(){};//Dynamic solo se usa a funciones polimorficas dinamicas
 };
 
 class Derivada: public Padre
@@ -43,21 +43,21 @@ class Derivada: public Padre
 };
 
 
-/* int main()
+int main()
 {
 	Derivada d("Juan", 3);
     Padre* p = &d;
 	p->getNombre();
 
-	//Padre *p1 = new Padre("Pepe");
-	Padre *p1 = new Derivada("Pepe", 55);
+	Padre *p1 = new Derivada("Pepe", 55);//Tiempo de ejecucion
 
-	Derivada *d1 = dynamic_cast<Derivada*>(p1);
+	Derivada *d1 = dynamic_cast<Derivada*>(p1); //Tiempo de ejecucion p1 es new == dinamic memory
 
-	if(d1)
+	//Tiempo ejecuccion == puede fallar ahi que manejar los fallos
+	if(d1)//Si falla dinamic cast se convierte en silencio nullptr
 		d1->getNombre();
 	else
 		std::cout << "Puntero null\n";
 
-   // delete p; // No olvides liberar la memoria asignada con new
-} */
+    delete p1; // Con liberar uno es suficiente pq apunta a la misma direccion de memoria
+}
