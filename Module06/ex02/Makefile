@@ -1,4 +1,4 @@
-NAME = serializer
+NAME = base
 
 CPP = c++
 CPPFLAGS = -g -Wall -Werror -Wextra -std=c++98

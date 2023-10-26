@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
+/*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:08:26 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/24 11:26:16 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:27:15 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@ struct Data
 	int n;
 };
 
+class Serializer
+{
+	private:
+		Serializer();
+		~Serializer();
+		Serializer(const Serializer& cpy);
+		Serializer& operator=(const Serializer& src);
+	public:
+		static uintptr_t serialize(Data *ptr);
+		static Data*	  deserialize(uintptr_t raw);
 
+};
 
 #endif

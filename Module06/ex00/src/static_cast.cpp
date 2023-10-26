@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cast.cpp                                           :+:      :+:    :+:   */
+/*   static_cast.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 20:04:59 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/24 20:26:37 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:39:25 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class Derivada: public Padre
 		~Derivada(){}
 };
 
-int main()
+/* int main()
 {
     Padre p("Padre");
 	Derivada d("Padre", "Derivada");
@@ -57,4 +57,4 @@ int main()
     
     p1->getNombre();
 	d1->getNombre();
-}
+} */

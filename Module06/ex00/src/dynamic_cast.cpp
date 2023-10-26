@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:50:09 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/24 20:23:23 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:38:35 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Derivada: public Padre
 };
 
 
-int main()
+/* int main()
 {
 	Derivada d("Juan", 3);
     Padre* p = &d;
@@ -60,4 +60,4 @@ int main()
 		std::cout << "Puntero null\n";
 
     delete p1; // Con liberar uno es suficiente pq apunta a la misma direccion de memoria
-}
+} */

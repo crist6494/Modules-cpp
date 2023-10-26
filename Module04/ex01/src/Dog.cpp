@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
+/*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:43:27 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/23 00:40:03 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:36:34 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ Dog::Dog()
 {
 	this->_type = "Dog";
 	std::cout<<"Default constructor called from Dog"<<std::endl;
-	this->_dogBrain = new Brain();
+	this->_dogBrain = new Braxin();
 }
-
+x
 Dog::~Dog()
 {
 	std::cout<<"Destructor called from Dog " <<std::endl;
