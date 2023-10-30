@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:47:59 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/26 20:38:03 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/29 12:56:07 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Base * generate(void)
         break;
     }
     std::cout << "Is not a number 1-3\n";
-    return nullptr;
+    return NULL;
 }
 
 void identify(Base* p)

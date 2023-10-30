@@ -1,4 +1,4 @@
-NAME = cast
+NAME = scalarConverter
 
 CPP = c++
 CPPFLAGS = -g -Wall -Werror -Wextra -std=c++98
