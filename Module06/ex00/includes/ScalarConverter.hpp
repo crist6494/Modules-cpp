@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:42:16 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/29 20:03:14 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/30 20:52:31 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ class ScalarConverter
 };
 
 enum{
-isChar = 1, 
-isInt = 2,
-isFloat = 3,
-isDouble = 4,
-notType = -1
+isChar, 
+isInt,
+isFloat,
+isDouble,
+notType
 };
 
 #endif

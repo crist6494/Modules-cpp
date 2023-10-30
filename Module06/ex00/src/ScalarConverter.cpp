@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:44:11 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/30 16:20:30 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/10/30 21:04:57 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,40 +37,165 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src)
 }
 
 
-static int is_char(std::string s1)
+static bool is_char(std::string s)
 {
-    if(s1.length() == 1 && std::isprint((s1[0])) && !std::isdigit((s1[0])))
-        return 1;
-    return 0;
+    if(s.length() == 1 && std::isprint((s[0])) && std::isalpha((s[0])))
+        return true;
+    return false;
 }
 
-static void cast_char(std::string s1)
+static bool is_int(std::string s)
 {
-   
-    char toChar = s1[0];
-    std::cout << CYAN << "char: " << toChar << std::endl;
-    std::cout << CYAN << "int: " << static_cast<int>(toChar) << std::endl;
-    std::cout << CYAN << "float: " << static_cast<float>(toChar) << ".0f" << std::endl;
-    std::cout << CYAN << "double: " << static_cast<double>(toChar) << ".0" << std::endl <<RESET;
+    int i = 0;
+    if(s[i] == '+' || s[i] == '-' || std::isdigit(s[0]))
+        i++;
+    for(int j = i; j < (int)s.length(); j++)
+    {
+        if(!std::isdigit(s[j]))
+            return false;
+    }
+    return true;
 }
-static int getType(std::string s1)
+
+static bool is_float(std::string s)
 {
-    if(is_char(s1))
+    int i = 0;
+    int p = 0;
+    
+    int len = s.size();
+    if(s[len - 1] != 'f')
+        return false;
+    if(s[i] == '+' || s[i] == '-' || std::isdigit(s[0]))
+        i++;
+    for(int j = i; j < len; j++)
+    {
+        if(s[j] == '.' && s[j + 1] == '0')
+        {
+            p++;
+            continue;
+        }
+        if(s[j] == 'f')
+            continue;
+        else if(!std::isdigit(s[j]))
+            return false;
+    }
+    if(p == 0)
+        return false;
+    return true;
+}
+
+static bool is_double(std::string s)
+{
+    int i = 0;
+    int p = 0;
+    
+    int len = s.size();
+    if(s[len - 1] == 'f')
+        return false;
+    if(s[i] == '+' || s[i] == '-' || std::isdigit(s[0]))
+        i++;
+    for(int j = i; j < len; j++)
+    {
+        if(s[j] == '.' && s[j + 1] == '0')
+        {
+            p++;
+            continue;
+        }
+        if(!std::isdigit(s[j]))
+            return false;
+    }
+    if(p == 0)
+        return false;
+    return true;
+}
+static void castChar(std::string s)
+{
+    char _c = s[0];
+    
+    std::cout << "Char\n";
+    std::cout << CYAN << "char:   " << _c << std::endl;
+    std::cout << GREEN << "int:    " << static_cast<int>(_c) << std::endl;
+    std::cout << YELLOW << "float:  " << static_cast<float>(_c) << ".0f" << std::endl;
+    std::cout << MAGENTA << "double: " << static_cast<double>(_c) << ".0" << std::endl << RESET;
+}
+
+static void castInt(std::string s)
+{
+    int _i = std::stoi(s);
+    
+    std::cout << "Int\n";
+    if(_i <= 32 || _i >= 126)
+        std::cout << CYAN << "char:   not displayable" << std::endl;
+    else
+        std::cout << CYAN << "char:   " << static_cast<char>(_i)<< std::endl;
+        
+    std::cout << GREEN << "int:    " << _i << std::endl;
+    std::cout << YELLOW << "float:  " << static_cast<float>(_i) << ".0f" << std::endl;
+    std::cout << MAGENTA << "double: " << static_cast<double>(_i) << ".0" << std::endl << RESET;
+}
+
+static void castFloat(std::string s)
+{
+    float _f = std::stof(s);
+    
+    std::cout << "Float\n";
+        if(_f <= 32 || _f >= 126)
+        std::cout << CYAN << "char:   not displayable" << std::endl;
+    else
+        std::cout << CYAN << "char:   " << static_cast<char>(_f)<< std::endl;
+        
+    std::cout << GREEN << "int:    " << static_cast<int>(_f) << std::endl;
+    std::cout << YELLOW << "float:  " << _f << ".0f" << std::endl;
+    std::cout << MAGENTA << "double: " << static_cast<double>(_f) << ".0" << std::endl << RESET;
+}
+
+static void castDouble(std::string s)
+{
+    double _d = std::stod(s);
+    
+    std::cout << "Double\n";
+    if(_d <= 32 || _d >= 126)
+        std::cout << CYAN << "char:   not displayable" << std::endl;
+    else
+        std::cout << CYAN << "char:   " << static_cast<char>(_d)<< std::endl;
+        
+    std::cout << GREEN << "int:    " << static_cast<int>(_d) << std::endl;
+    std::cout << YELLOW << "float:  " << static_cast<float>(_d) << ".0f" << std::endl;
+    std::cout << MAGENTA << "double: " << _d << ".0" << std::endl << RESET;
+}
+
+
+static int getType(std::string s)
+{
+    if(is_char(s))
         return isChar;
+    else if(is_int(s))
+        return isInt;
+    else if(is_float(s))
+        return isFloat;
+    else if(is_double(s))
+        return isDouble;
     return notType;
 }
 
 
-void ScalarConverter::convert(std::string s1)
+void ScalarConverter::convert(std::string s)
 {
     int type;
 
-    type = getType((s1));
+    type = getType((s));
     switch ((type))
     {
-    case 1: cast_char(s1);
+    case isChar: castChar(s);
         break;
-    default: std::cout << RED << "Not type found" << RESET << std::endl;
+    case isInt: castInt(s);
+        break;
+    case isFloat: castFloat(s);
+        break;
+    case isDouble: castDouble(s);
+        break;
+    default:
+        throw std::exception();
         break;
     }
 }
