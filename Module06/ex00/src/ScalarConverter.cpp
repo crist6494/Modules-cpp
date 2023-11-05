@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:44:11 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/30 21:04:57 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:31:44 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src)
     return *this;
 }
 
-
 static bool is_char(std::string s)
 {
-    if(s.length() == 1 && std::isprint((s[0])) && std::isalpha((s[0])))
+    if(s.length() == 1 && isprint(s[0]) && !isnumber((s[0])))
         return true;
     return false;
 }
@@ -108,11 +107,21 @@ static bool is_double(std::string s)
         return false;
     return true;
 }
+
+static int is_pseudo(std::string s)
+{
+    if(s == "inff" || s == "-inff" || s == "nanf")
+        return 1;
+    if(s == "inf" || s == "-inf" || s == "nan")
+        return 2;
+    return -1;
+}
+
+
 static void castChar(std::string s)
 {
     char _c = s[0];
     
-    std::cout << "Char\n";
     std::cout << CYAN << "char:   " << _c << std::endl;
     std::cout << GREEN << "int:    " << static_cast<int>(_c) << std::endl;
     std::cout << YELLOW << "float:  " << static_cast<float>(_c) << ".0f" << std::endl;
@@ -123,23 +132,20 @@ static void castInt(std::string s)
 {
     int _i = std::stoi(s);
     
-    std::cout << "Int\n";
-    if(_i <= 32 || _i >= 126)
-        std::cout << CYAN << "char:   not displayable" << std::endl;
+    if(_i < 32 || _i > 126)
+            std::cout << CYAN << "char:   not displayable" << std::endl;
     else
-        std::cout << CYAN << "char:   " << static_cast<char>(_i)<< std::endl;
-        
-    std::cout << GREEN << "int:    " << _i << std::endl;
-    std::cout << YELLOW << "float:  " << static_cast<float>(_i) << ".0f" << std::endl;
-    std::cout << MAGENTA << "double: " << static_cast<double>(_i) << ".0" << std::endl << RESET;
+        std::cout << CYAN << "char:   " << static_cast<char>(_i)<< std::endl;    
+        std::cout << GREEN << "int:    " << _i << std::endl;
+        std::cout << YELLOW << "float:  " << static_cast<float>(_i) << ".0f" << std::endl;
+        std::cout << MAGENTA << "double: " << static_cast<double>(_i) << ".0" << std::endl << RESET;
 }
 
 static void castFloat(std::string s)
 {
     float _f = std::stof(s);
     
-    std::cout << "Float\n";
-        if(_f <= 32 || _f >= 126)
+        if(_f < 32 || _f > 126)
         std::cout << CYAN << "char:   not displayable" << std::endl;
     else
         std::cout << CYAN << "char:   " << static_cast<char>(_f)<< std::endl;
@@ -153,8 +159,7 @@ static void castDouble(std::string s)
 {
     double _d = std::stod(s);
     
-    std::cout << "Double\n";
-    if(_d <= 32 || _d >= 126)
+    if(_d < 32 || _d > 126)
         std::cout << CYAN << "char:   not displayable" << std::endl;
     else
         std::cout << CYAN << "char:   " << static_cast<char>(_d)<< std::endl;
@@ -162,6 +167,24 @@ static void castDouble(std::string s)
     std::cout << GREEN << "int:    " << static_cast<int>(_d) << std::endl;
     std::cout << YELLOW << "float:  " << static_cast<float>(_d) << ".0f" << std::endl;
     std::cout << MAGENTA << "double: " << _d << ".0" << std::endl << RESET;
+}
+
+static void castPseudoFloat(std::string s)
+{
+    std::string notf = s.substr(0, s.size() - 1);
+    
+    std::cout << CYAN << "char:   impossible" << std::endl; 
+    std::cout << GREEN << "int:    impossible   " << std::endl;
+    std::cout << YELLOW << "float:  " << s << std::endl;
+    std::cout << MAGENTA << "double: " << notf << std::endl << RESET;
+}
+
+static void castPseudoDouble(std::string s)
+{
+    std::cout << CYAN << "char:   impossible" << std::endl; 
+    std::cout << GREEN << "int:    impossible   " << std::endl;
+    std::cout << YELLOW << "float:  " << s << "f" << std::endl;
+    std::cout << MAGENTA << "double: " << s  << std::endl << RESET;
 }
 
 
@@ -175,6 +198,10 @@ static int getType(std::string s)
         return isFloat;
     else if(is_double(s))
         return isDouble;
+    else if(is_pseudo(s) == 1)
+        return isPseudoFloat;
+    else if(is_pseudo(s) == 2)
+        return isPseudoDouble;
     return notType;
 }
 
@@ -193,6 +220,10 @@ void ScalarConverter::convert(std::string s)
     case isFloat: castFloat(s);
         break;
     case isDouble: castDouble(s);
+        break;
+    case isPseudoFloat: castPseudoFloat(s);
+        break;
+    case isPseudoDouble: castPseudoDouble(s);
         break;
     default:
         throw std::exception();

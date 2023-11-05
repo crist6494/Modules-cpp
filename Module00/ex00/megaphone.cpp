@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
+/*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:21:23 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/13 17:28:30 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/02 19:44:40 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int main(int ac, char **av)
 			std::cout<<" ";
 	}
 	std::cout<<std::endl;
-	return (0);
+	return (0);->
 }

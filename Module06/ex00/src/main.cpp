@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 20:40:42 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/30 21:07:15 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:35:11 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ int main(int ac, char **av)
 		try
 		{
 			ScalarConverter::convert(av[1]);
+		}
+		catch (const std::out_of_range& e)
+		{
+        	std::cerr << RED << "Error: Overflow value" << std::endl << RESET;
 		}
 		catch(std::exception& e)//Añadir exception fuera de rango
 		{

@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:42:16 by cmorales          #+#    #+#             */
-/*   Updated: 2023/10/30 20:52:31 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:32:48 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ isChar,
 isInt,
 isFloat,
 isDouble,
+isPseudoFloat,
+isPseudoDouble,
 notType
 };
 
