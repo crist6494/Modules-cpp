@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:42:16 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/05 23:32:48 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/06 17:46:25 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 # include <iostream>
 # include <string>
+# include <iomanip>
 
 class ScalarConverter
 {

@@ -32,7 +32,7 @@ re: fclean
 	@make all
 
 r: re
-	./$(NAME)
+	@./$(NAME)
 
 val: all
 	valgrind --leak-check=full ./$(NAME)

@@ -6,27 +6,32 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:26:52 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/06 12:06:27 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:58:50 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 
-template <typename T>
-void print_test(T *arr, int len, void(*ptrf)(T& f))
+void print_string(std::string& arr)
 {
-    std::cout << "Arr type: " << typeid(*arr).name() << std::endl;
-    std::cout << "Arr dates: ";
-    iter(arr, len, ptrf);
+    std::cout << MAGENTA << arr << ' ' << RESET;
 }
 
 int main()
 {
     int i_arr[] = {1, 2, 3, 4, 5};
-    
+    std::string s_arr[4] = {"how", "are", "you", "?"};
     char c_arr[] = {'a', 'b', 'c', 'd', 'e'};
+    char cc_arr[8] = "6583745";
     
-    print_test(i_arr, 5, &print_arr);
+    print_test(i_arr, 5, &print_arr, &sum_arr);
     std::cout << std::endl;
-    print_test(c_arr, 5, &print_arr);
+    std::cout << "------------------------" << std::endl;
+    print_test(c_arr, 5, &print_arr, &sum_arr);
+    std::cout << std::endl;
+    std::cout << "------------------------" << std::endl;
+    print_test(cc_arr, 8, &print_arr, &sum_arr);
+    std::cout << std::endl << "------------------------" << std::endl;
+    iter(s_arr, 5, &print_string);
+    std::cout << std::endl;
 }

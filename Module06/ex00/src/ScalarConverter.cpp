@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:44:11 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/05 23:31:44 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/06 17:55:42 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ static bool is_float(std::string s)
     int p = 0;
     
     int len = s.size();
-    if(s[len - 1] != 'f')
+    if(s[len - 1] != 'f' || !std::isdigit(s[0]))
         return false;
-    if(s[i] == '+' || s[i] == '-' || std::isdigit(s[0]))
+    if(s[i] == '+' || s[i] == '-')
         i++;
     for(int j = i; j < len; j++)
     {
-        if(s[j] == '.' && s[j + 1] == '0')
+        if(s[j] == '.' && std::isdigit(s[j + 1]))
         {
             p++;
             continue;
@@ -89,13 +89,13 @@ static bool is_double(std::string s)
     int p = 0;
     
     int len = s.size();
-    if(s[len - 1] == 'f')
+    if(s[len - 1] == 'f' || !std::isdigit(s[0]))
         return false;
-    if(s[i] == '+' || s[i] == '-' || std::isdigit(s[0]))
+    if(s[i] == '+' || s[i] == '-')
         i++;
     for(int j = i; j < len; j++)
     {
-        if(s[j] == '.' && s[j + 1] == '0')
+        if(s[j] == '.' && std::isdigit(s[j + 1]))
         {
             p++;
             continue;
@@ -151,8 +151,8 @@ static void castFloat(std::string s)
         std::cout << CYAN << "char:   " << static_cast<char>(_f)<< std::endl;
         
     std::cout << GREEN << "int:    " << static_cast<int>(_f) << std::endl;
-    std::cout << YELLOW << "float:  " << _f << ".0f" << std::endl;
-    std::cout << MAGENTA << "double: " << static_cast<double>(_f) << ".0" << std::endl << RESET;
+    std::cout << YELLOW << "float:  " << std::fixed << std::setprecision(1) << _f << "f" << std::endl;
+    std::cout << MAGENTA << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(_f) << std::endl << RESET;
 }
 
 static void castDouble(std::string s)
@@ -165,8 +165,8 @@ static void castDouble(std::string s)
         std::cout << CYAN << "char:   " << static_cast<char>(_d)<< std::endl;
         
     std::cout << GREEN << "int:    " << static_cast<int>(_d) << std::endl;
-    std::cout << YELLOW << "float:  " << static_cast<float>(_d) << ".0f" << std::endl;
-    std::cout << MAGENTA << "double: " << _d << ".0" << std::endl << RESET;
+    std::cout << YELLOW << "float:  " << std::fixed << std::setprecision(1) << static_cast<float>(_d) << "f" << std::endl;
+    std::cout << MAGENTA  << "double: " << std::fixed << std::setprecision(1) << _d  << std::endl << RESET;
 }
 
 static void castPseudoFloat(std::string s)

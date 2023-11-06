@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:08:04 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/03 10:54:26 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/06 17:58:56 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ int main()
 	uintptr_t raw;
 	raw = Serializer::serialize(&data);
 	std::cout <<"Data: " << raw << std::endl;
-	std::cout <<"Int: " << data.n << std::endl;
-	std::cout <<"String: " << data.s1 << std::endl;
 	std::cout << "----------------\n";
 
 	Data *dataptr;

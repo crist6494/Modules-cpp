@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:59:42 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/06 00:31:28 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:35:47 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main()
 
     float *ptrf = &f;
     float *ptrf1 = &f1;
+    
     print_results(1, 2);
     print_results(f, f1);
     print_results(*ptrf, *ptrf1);

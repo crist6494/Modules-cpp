@@ -1,4 +1,4 @@
-NAME = iter
+NAME = templateArray
 
 CPP = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
@@ -11,7 +11,7 @@ SRCS = $(wildcard $(SRCS_DIR)*.cpp)
 
 OBJS = $(addprefix $(OBJS_DIR), $(notdir $(SRCS:.cpp=.o)))
 
-all: obj $(NAME)
+all : obj $(NAME)
 
 obj:
 	@mkdir -p $(OBJS_DIR)
@@ -38,4 +38,4 @@ val: all
 	valgrind --leak-check=full ./$(NAME)
 	rm -rf $(NAME).dSYM
 
-.PHONY: all re fclean clean
+.PHONY: all clean fclean re r

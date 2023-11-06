@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 00:05:37 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/06 00:28:28 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:34:29 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,12 @@ T max(T a, T b)
 template <typename T>
 void print_results(T a, T b)
 {
-    std::cout << "Valor de a: " << a << " Valor de b: " << b << std::endl;
+    std::cout << GREEN << "Valor de a: " << a << " Valor de b: " << b << std::endl << RESET;
     swap(a, b);
-    std::cout << "swap(a, b)" << std::endl;
-    std::cout << "Valor de a: " << a << " Valor de b: " << b << std::endl;
-    std::cout << "----------------------"<< std::endl;
-    std::cout << "Valor minimo es: " << min(a, b) << std::endl;
-    std::cout << "Valor maximo es: " << max(a, b) << std::endl;
+    std::cout << CYAN << "Swap(a, b) -> " << "Valor de a: " << a << " Valor de b: " << b << std::endl << RESET;
+    std::cout << "Valor minimo es: " << min(a, b) << std::endl << RESET;
+    std::cout << "Valor maximo es: " << max(a, b) << std::endl << RESET;
+    std::cout << "----------------------"<< std::endl << RESET;
     std::cout << std::endl;
 }
 
