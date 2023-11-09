@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
+/*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:47:39 by cmorales          #+#    #+#             */
-/*   Updated: 2023/05/10 18:33:17 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/08 20:43:10 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ Fixed::Fixed(const float n)
 
 int		Fixed::toInt() const
 {
-	return (this->_value >> _nbBits);5
+	return (this->_value >> _nbBits);
 }
 
 float	Fixed::toFloat() const

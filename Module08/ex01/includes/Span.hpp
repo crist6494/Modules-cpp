@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:10:00 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/08 11:55:32 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/09 17:58:52 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,16 @@
 
 # include <iostream>
 # include <vector>
+# include <exception>
+# include <cstdlib>
+# include <ctime> 
 
 class Span
 {
     private:
-        unsigned int _n;
-        std::vector<int> vec;
+        unsigned int _size;
+        unsigned int _lim;
+        std::vector<int> _vec;
     public:
         Span();
         Span(unsigned int N);
@@ -37,8 +41,30 @@ class Span
         
         Span& operator=(const Span& src);
 
-        unsigned int getN();
-        void addNumber(int number);
+        std::vector<int> getVec();
+        unsigned int getLim();
+        unsigned int getSize();
+        
+        void addNumber(int num);
+        
+        class OverflowStore : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+
+        unsigned int shortestSpan();
+        unsigned int longestSpan();
+
+         class NotFoundNum : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+
+        void fillSpanNumber();
 };
+
+std::ostream& operator<<(std::ostream& os, Span& src);
 
 #endif

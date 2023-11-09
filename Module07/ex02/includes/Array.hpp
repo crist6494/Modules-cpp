@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:19:25 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/07 23:32:28 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/09 20:56:52 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ template <typename T>
 Array<T>::Array(const Array<T>& cpy)
     :_size(cpy._size), _arr(new T[_size])
 {
-	std::cout << YELLOW <<"Destructor called from Array"<<std::endl << RESET;
+	std::cout << YELLOW <<"Copy constructor called from Array"<<std::endl << RESET;
     for(unsigned int i = 0; i < this->size(); i++)
             this->_arr[i] = cpy._arr[i];
 }
