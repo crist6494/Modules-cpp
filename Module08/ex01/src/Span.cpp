@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:11:12 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/09 20:50:50 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:59:17 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ Span::~Span()
     std::cout << RED <<"Destructor constructor called from Span whit N: " << this->getLim() <<std::endl << RESET;
 }
 Span::Span(const Span& cpy)
+    :_vec(cpy._vec), _size(cpy._size), _lim(cpy._lim)
 {
     std::cout << YELLOW <<"Copy Constructor called from Span"<<std::endl << RESET;
-    *this = cpy; 
 }        
 Span& Span::operator=(const Span& src)
 {

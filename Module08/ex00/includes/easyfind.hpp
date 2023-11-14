@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 23:45:10 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/08 11:36:23 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:59:46 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class NotOccurrenceFound : public std::exception
 template <typename T>
 void easyfind(T& t, int n)
 {
-    typename T::iterator iter;
+    typename T::iterator iter;//No confunda T::iterator con una variable pq lo suamos como tipo
     
     iter = std::find(t.begin(), t.end(), n);
     try

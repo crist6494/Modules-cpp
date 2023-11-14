@@ -6,7 +6,7 @@
 /*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:38:06 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/10 00:10:55 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:00:01 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ MutantStack<T>& MutantStack<T>::operator=(const MutantStack& src)
 template<typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin()//Pa decirle que it es una variable y no uan declaracion de funcion
 {
-    return std::stack<T>::c.begin();
+    return std::stack<T>::c.begin();//Para acceder a la variable c que tiene el contenedor subyacente
 }
 
 template <typename T>
