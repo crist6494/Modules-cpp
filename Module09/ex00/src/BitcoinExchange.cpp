@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:05:28 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/15 12:21:54 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:27:19 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ void BitcoinExchange::takeInput(const std::string& input)
     {
         if(line.empty())
             continue;
-        //key = trim(line.substr(0, line.find(' ')));
-        if(line.find('|') == std::string::npos)
+        key = line.substr(0, line.find(' '));
+        if(line.find(" | ") == std::string::npos)
         {
             std::cerr << RED << "Error: bad input => " << key << RESET << std::endl;
             continue;

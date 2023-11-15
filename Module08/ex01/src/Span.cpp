@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 11:11:12 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/14 20:59:17 by cmorales         ###   ########.fr       */
+/*   Created: 2023/11/15 20:17:45 by cmorales          #+#    #+#             */
+/*   Updated: 2023/11/15 20:47:57 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Span::~Span()
     std::cout << RED <<"Destructor constructor called from Span whit N: " << this->getLim() <<std::endl << RESET;
 }
 Span::Span(const Span& cpy)
-    :_vec(cpy._vec), _size(cpy._size), _lim(cpy._lim)
+    :_size(cpy._size), _lim(cpy._lim), _vec(cpy._vec)
 {
     std::cout << YELLOW <<"Copy Constructor called from Span"<<std::endl << RESET;
 }        
@@ -76,24 +76,37 @@ void Span::addNumber(int num)
     this->_size++;
     std::cout << "Integer added correctly: " << num << std::endl;
 }
+
 unsigned int Span::shortestSpan()
 {
-    if(this->_vec.size() == 0 || this->_vec.size() == 1)
-        throw NotFoundNum();
-    std::vector<int>::iterator shval;
-    shval = std::min_element(this->_vec.begin(),this->_vec.end());
-    std::cout << YELLOW << "Shortest integer: " << *shval << RESET << std::endl;
-    return *shval;
+   if(this->_lim <= 1)
+        throw std::length_error("Not enough number");
+    std::vector<int> store(this->_vec.size());
+    std::adjacent_difference(this->_vec.begin(), this->_vec.end(), store.begin());
+    //calcula la distacia entre el de al lado ->{3,63,1,2} -> 63-3, 1-63, 2-1 = 60,-62,1
+    std::vector<int>::iterator it = store.begin();
+    for (it = store.begin(); it != store.end(); ++it) {
+        *it = std::abs(*it);
+    }
+    std::vector<int>::iterator min= std::min_element(store.begin() + 1, store.end());
+    std::cout << YELLOW << "Longest integer: " << *min << RESET << std::endl;
+    return *min;
 }
 
 unsigned int Span::longestSpan()
 {
-     if(this->_vec.size() == 0 || this->_vec.size() == 1)
-        throw NotFoundNum();
-    std::vector<int>::iterator lgval;
-    lgval = std::max_element(this->_vec.begin(),this->_vec.end());
-    std::cout << YELLOW << "Longest integer: " << *lgval << RESET << std::endl;
-    return *lgval;
+    if(this->_lim <= 1)
+        throw std::length_error("Not enough number");
+    std::vector<int> store(this->_vec.size());
+    std::adjacent_difference(this->_vec.begin(), this->_vec.end(), store.begin());
+
+    std::vector<int>::iterator it = store.begin();
+    for (it = store.begin(); it != store.end(); ++it) {
+        *it = std::abs(*it);
+    }
+    std::vector<int>::iterator max= std::max_element(store.begin() + 1, store.end());
+    std::cout << YELLOW << "Longest integer: " << *max << RESET << std::endl;
+    return *max;
 }
 
 void Span::fillSpanNumber()

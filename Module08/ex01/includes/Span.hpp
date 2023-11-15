@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:10:00 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/14 20:59:26 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/15 20:48:05 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 # include <exception>
 # include <cstdlib>
 # include <ctime> 
+# include <algorithm>
+#include <iterator>
+#include <numeric>
 
 class Span
 {
@@ -56,7 +59,7 @@ class Span
         unsigned int shortestSpan();
         unsigned int longestSpan();
 
-         class NotFoundNum : public std::exception
+        class NotFoundNum : public std::exception
         {
             public:
                 virtual const char* what() const throw();

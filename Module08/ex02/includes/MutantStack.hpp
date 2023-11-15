@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmorales <cmorales@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:38:06 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/14 20:00:01 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:14:27 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ class MutantStack : public std::stack<T, std::deque<T> >
         MutantStack& operator=(const MutantStack& src);
 
         typedef typename std::stack<T>::container_type::iterator iterator;
+        typedef typename std::stack<T>::container_type::const_iterator const_iterator;
         iterator begin();
         iterator end();
+        const_iterator begin() const;
+        const_iterator end() const;
 };
 
 template<typename T>
@@ -56,13 +59,14 @@ template<typename T>
 MutantStack<T>::MutantStack(const MutantStack& cpy)
 {
 	std::cout << YELLOW <<"Copy constructor called from MutanStack"<<std::endl << RESET;
-    (void)cpy;
+    *this = cpy;
 }
 template<typename T>
 MutantStack<T>& MutantStack<T>::operator=(const MutantStack& src)
 {
 	std::cout << YELLOW <<"Assignation operator called from MutanStack"<<std::endl << RESET;
-    (void)src;
+    if(this != &src)
+        std::stack<T>::operator=(src);
     return *this;
 }
 
@@ -74,6 +78,18 @@ typename MutantStack<T>::iterator MutantStack<T>::begin()//Pa decirle que it es 
 
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::end()
+{
+    return std::stack<T>::c.end();
+}
+
+template<typename T>
+typename MutantStack<T>::const_iterator MutantStack<T>::begin() const
+{
+    return std::stack<T>::c.begin();
+}
+
+template <typename T>
+typename MutantStack<T>::const_iterator MutantStack<T>::end() const
 {
     return std::stack<T>::c.end();
 }

@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:06:07 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/14 20:59:07 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/15 20:49:08 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int main()
         std::cout << s;
         s.shortestSpan();
         s.longestSpan();
+    }
+    catch(const std::length_error& e)
+    {
+        std::cerr << RED << "Exception: " << e.what() << std::endl << RESET;
     }
     catch(const Span::OverflowStore& e)
     {
@@ -59,13 +63,19 @@ int main()
     {
         std::cerr << RED << "Exception: " << e.what() << std::endl << RESET;
     }
+    catch(const std::length_error& e)
+    {
+        std::cerr << RED << "Exception: " << e.what() << std::endl << RESET;
+    }
     catch(const Span::NotFoundNum& e)
     {
         std::cerr << RED << "Exception: " << e.what() << std::endl << RESET;
     }
 }
 
-/* int main()
+
+/*
+int main()
 {
     Span sp = Span(5);
     sp.addNumber(6);
@@ -75,5 +85,5 @@ int main()
     sp.addNumber(11);
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
-return 0;
+    return 0;
 } */
