@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:37:48 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/14 20:58:57 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:19:50 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,23 @@
 # define CYAN			"\033[36m"				/* Cyan */
 
 # include <iostream>
+# include <fstream>
+#include <sstream>
+# include <map>
+
+class BitcoinExchange
+{
+    private:
+        std::map<std::string, float> data;
+    public:
+        BitcoinExchange();
+        ~BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange& cpy);
+
+        BitcoinExchange& operator=(const BitcoinExchange& src);
+
+        void takeData(const std::string& filename);
+        void takeInput(const std::string& input);
+};
 
 #endif

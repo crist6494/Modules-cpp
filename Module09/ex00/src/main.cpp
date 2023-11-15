@@ -6,13 +6,21 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:24:16 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/14 20:58:33 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/15 11:54:46 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <BitcoinExchange.hpp>
 
-int main()
+int main(int ac, char **av)
 {
-    std::cout << "Hola";
+    if(ac == 2)
+    {
+        BitcoinExchange btc;
+        btc.takeData("data.csv");
+        btc.takeInput(av[1]);
+        return 0;
+    }
+    std::cout << RED << "Error: could not open file." << RESET << std::endl;
+    return 1;
 }
