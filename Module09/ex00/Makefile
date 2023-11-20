@@ -1,7 +1,7 @@
 NAME = btc
 
 CPP = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -g -Wall -Werror -Wextra -std=c++98
 
 SRCS_DIR = ./src/
 OBJS_DIR = ./obj/

@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:05:28 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/16 23:36:50 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/20 21:25:08 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ BitcoinExchange::~BitcoinExchange()
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& cpy)
 {
-    (void)cpy;
+    *this = cpy;
     return;
 }
 
@@ -32,9 +32,18 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& cpy)
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
 {
     if(this != &src)
-        (void)src;
-    (void)src;
+    {
+        this->_day = src._day;
+        this->_month = src._month;
+        this->_year = src._year;
+        this->data = src.data;
+    }
     return *this;
+}
+
+std::map<std::string, float> BitcoinExchange::getData()
+{
+    return this->data;    
 }
 
 void BitcoinExchange::takeData(const std::string& filename)
@@ -68,9 +77,7 @@ void BitcoinExchange::takeData(const std::string& filename)
         this->data.insert(std::make_pair(key, value));
     }
     fileData.close();
-/*     std::cout << CYAN << "Empieza aqui: " << RESET << std::endl;
-    for(std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
-        std::cout << it->first << ": " << std::fixed << std::setprecision(2) << it->second << " " << std::endl; */
+
 }
 
 static std::string trim(const std::string& s)
@@ -94,7 +101,7 @@ bool BitcoinExchange::checkKey(const std::string& key)
     this->_month = std::stoi(key.substr(5, 2));
     this->_day = std::stoi(key.substr(8, 2));
 
-    if(this->_year < 2000 || this->_year > 2023)
+    if(this->_year < 2000 || this->_year > 2022)
         return false;
     else if(this->_month < 1 || this->_month > 12)
         return false;
@@ -145,7 +152,7 @@ static bool checkInput(std::ifstream& fileInput, std::string& line, const std::s
         std::cerr << RED << "Error: could not open file => " << input << RESET << std::endl;
         return false;
     }
-    if(fileInput.peek() == std::ifstream::traits_type::eof())
+    if(fileInput.peek() == std::ifstream::traits_type::eof()) //Peek -> check if file has some info
     {
         std::cerr << RED << "Error: file is empty " << RESET << std::endl;
         return false;
@@ -166,45 +173,60 @@ bool BitcoinExchange::findKey(const std::string& key)
     return false;
 }
 
-const std::string BitcoinExchange::findClosestDate()
+const std::string BitcoinExchange::findClosestDate(std::string& key)
 {
-    std::cout << this->_day << std::endl;
-    std::cout << this->_month << std::endl;
-    std::cout << this->_year << std::endl;
-    int lastDays[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int lastDays[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     
-    if(this->_year > 2009)
+    this->_year = std::stoi(key.substr(0, 4));
+    this->_month = std::stoi(key.substr(5, 2));
+    this->_day = std::stoi(key.substr(8, 2));
+    if(this->_year >= 2009)
     {
         this->_day--;
         if(this->_day == 0)
-            this->_month--;
-        if(this->_month == 0)
         {
-            this->_month = 12;
-            this->_year--;
+            this->_month--;
+            if(this->_month == 0)
+            {
+                this->_month = 12;
+                this->_year--;
+            }
+            this->_day = lastDays[this->_month];
         }
-        this->_day = lastDays[this->_month];
-        std::string s_day = std::to_string(this->_day);
-        std::string s_month = std::to_string(this->_month);
+        std::string s_day;
+        if(this->_day > 0 && this->_day < 10)
+           s_day =  "0" + std::to_string(this->_day);
+        else
+            s_day = std::to_string(this->_day);
+            
+        std::string s_month;
+        if(this->_month > 0 && this->_month < 10)
+           s_month =  "0" + std::to_string(this->_month);
+        else
+            s_month = std::to_string(this->_month);
+            
         std::string s_year = std::to_string(this->_year);
         return s_year + "-" + s_month + "-" + s_day;
     }
-    return "";
+    return "no data";
 }
 void BitcoinExchange::printResults(std::string& key, std::string& value)
 {
-    while(findKey(key) == true || this->_year < 2009)
+    std::string newKey = key;
+    while(!findKey(newKey) && this->_year > 2009)
     {
-        this->_year = std::stoi(key.substr(0, 4));
-        this->_month = std::stoi(key.substr(5, 2));
-        this->_day = std::stoi(key.substr(8, 2));
-        key = findClosestDate();
+        newKey = findClosestDate(newKey);
     }
-    std::cout << key << std::endl;
-    if(findKey(key))
-        std::cout << CYAN  << key << " => " << value << " = " << (this->_value * this->data[key]) << RESET << std::endl;
-    else
+    if(this->_year < 2009)
+        newKey = "no data";
+        
+    if(newKey == "no data")
         std::cerr << RED << "no data" << RESET << std::endl;
+    else
+    {
+        float result = this->_value * this->data[newKey];
+        std::cout  << key << " => " << value << " = " << result << std::endl; 
+    }
 }
 
 
@@ -235,4 +257,13 @@ void BitcoinExchange::takeInput(const std::string& input)
             printResults(key, s_value);
     }    
     fileInput.close();
+}
+
+std::ostream& operator<<(std::ostream& os, BitcoinExchange& btc)
+{
+    std::map<std::string, float> map = btc.getData();
+    std::cout << CYAN << "Empieza aqui: " << RESET << std::endl;
+    for(std::map<std::string, float>::iterator it = map.begin(); it != map.end(); it++)
+        std::cout << it->first << ", " << std::fixed << std::setprecision(2) << it->second << " " << std::endl;
+    return os;  
 }

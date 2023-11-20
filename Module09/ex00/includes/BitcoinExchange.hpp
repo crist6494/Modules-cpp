@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:37:48 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/16 23:28:56 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/20 21:16:03 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@
 # include <map>
 #include <regex>
 
-
-
 class BitcoinExchange
 {
     private:
@@ -40,7 +38,7 @@ class BitcoinExchange
         bool checkKey(const std::string& key);
         bool checkValue(const std::string& value);
         bool findKey(const std::string& key);
-        const std::string findClosestDate();
+        const std::string findClosestDate(std::string& key);
         void printResults(std::string& key, std::string& value);
     public:
         BitcoinExchange();
@@ -51,6 +49,10 @@ class BitcoinExchange
 
         void takeData(const std::string& filename);
         void takeInput(const std::string& input);
+
+        std::map<std::string, float> getData();
 };
+
+std::ostream& operator<<(std::ostream& os, BitcoinExchange& btc);
 
 #endif
