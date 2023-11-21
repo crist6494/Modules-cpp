@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:05:28 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/20 21:25:08 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:54:30 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& cpy)
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
 {
     if(this != &src)
-    {
-        this->_day = src._day;
-        this->_month = src._month;
-        this->_year = src._year;
         this->data = src.data;
-    }
     return *this;
 }
 

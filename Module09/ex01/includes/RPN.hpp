@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:04:44 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/21 12:14:05 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:04:45 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 class RPN
 {
     private:
-        std::queue<int> queue;
+        std::stack<int> stack;
         int _a;
         int _b;
         int doOperation(const std::string& s);
@@ -44,3 +44,6 @@ class RPN
 };
 
 #endif
+
+
+
