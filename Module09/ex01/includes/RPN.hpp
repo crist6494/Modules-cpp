@@ -6,11 +6,11 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:04:44 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/14 21:07:09 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:14:05 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include RPN_HPP
+#ifndef RPN_HPP
 # define RPN_HPP
 
 # define RESET			"\033[0m"
@@ -22,5 +22,25 @@
 # define CYAN			"\033[36m"				/* Cyan */
 
 # include <iostream>
+# include <stack>
+# include <queue>
+# include <sstream>
+
+class RPN
+{
+    private:
+        std::queue<int> queue;
+        int _a;
+        int _b;
+        int doOperation(const std::string& s);
+    public:
+        RPN();
+        ~RPN();
+        RPN(const RPN& cpy);
+
+        RPN& operator=(RPN src);
+
+        void run(std::string input);
+};
 
 #endif
