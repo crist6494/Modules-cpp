@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:05:27 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/21 20:54:42 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:11:29 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ RPN& RPN::operator=(RPN src)
     if(this != &src)
         this->stack = src.stack;
     return *this;
+}
+
+static int stoi(const std::string& s)
+{
+    std::stringstream convert(s);
+    int number;
+    convert >> number;
+    return number;
 }
 
 static bool checkNum(std::string& n)
@@ -91,7 +99,7 @@ void RPN::run(std::string input)
                 this->stack.push(result);
             }
             else if(checkNum(s))
-                this->stack.push(std::stoi(s));
+                this->stack.push(::stoi(s));
             else
                 throw std::invalid_argument("Invalid expression");
         }

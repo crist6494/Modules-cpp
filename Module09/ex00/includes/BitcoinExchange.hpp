@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:37:48 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/20 21:16:03 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:02:44 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 
 # include <iostream>
 # include <fstream>
-#include <sstream>
+# include <sstream>
 # include <map>
-#include <regex>
+# include <regex>
 
 class BitcoinExchange
 {

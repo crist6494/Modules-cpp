@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:06:29 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/14 21:07:16 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:47:20 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,24 @@
 # define CYAN			"\033[36m"				/* Cyan */
 
 # include <iostream>
+# include <vector>
+# include <sstream>
+
+class PmergeMe
+{
+    private:
+        std::vector<int>vec;
+    public:
+        PmergeMe();
+        ~PmergeMe();
+        PmergeMe(const PmergeMe& cpy);
+
+        PmergeMe& operator=(const PmergeMe& src);
+
+        void takeInput(int ac, char **input);
+        void addNumber(const std::string& n_input);
+};
+
+std::ostream& operator<<(std::ostream& os, std::vector<int>);
 
 #endif

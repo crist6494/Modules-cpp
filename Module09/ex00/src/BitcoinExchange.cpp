@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:05:28 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/21 20:54:30 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:10:32 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
 std::map<std::string, float> BitcoinExchange::getData()
 {
     return this->data;    
+}
+
+static int stoi(const std::string& s)
+{
+    std::stringstream convert(s);
+    int number;
+    convert >> number;
+    return number;
 }
 
 void BitcoinExchange::takeData(const std::string& filename)
@@ -92,9 +100,9 @@ bool BitcoinExchange::checkKey(const std::string& key)
     if (!std::regex_match(key, patron))//Comprueba el patro y devuelve bool o false
         return false;
             
-    this->_year = std::stoi(key.substr(0, 4));
-    this->_month = std::stoi(key.substr(5, 2));
-    this->_day = std::stoi(key.substr(8, 2));
+    this->_year = ::stoi(key.substr(0, 4));
+    this->_month = ::stoi(key.substr(5, 2));
+    this->_day = ::stoi(key.substr(8, 2));
 
     if(this->_year < 2000 || this->_year > 2022)
         return false;
@@ -172,9 +180,9 @@ const std::string BitcoinExchange::findClosestDate(std::string& key)
 {
     int lastDays[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     
-    this->_year = std::stoi(key.substr(0, 4));
-    this->_month = std::stoi(key.substr(5, 2));
-    this->_day = std::stoi(key.substr(8, 2));
+    this->_year = ::stoi(key.substr(0, 4));
+    this->_month = ::stoi(key.substr(5, 2));
+    this->_day = ::stoi(key.substr(8, 2));
     if(this->_year >= 2009)
     {
         this->_day--;
