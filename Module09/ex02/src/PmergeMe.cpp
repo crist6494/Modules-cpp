@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:08:02 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/27 16:57:12 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/27 20:36:57 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,10 @@ void printSubgroups(const std::vector<int>& vec, size_t currSize) {
     std::cout << "Subgrupos de tamaño " << currSize << ":" << std::endl;
     for (size_t i = 0; i < vec.size(); i += currSize)
     {
+        std::cout << i << " " << vec.size() << std::endl;
         std::cout << "[";
-        for (size_t j = i; j < i + currSize && j < vec.size(); ++j) {
+        for (size_t j = i; j < i + currSize && j < vec.size(); j++)
+        {
             std::cout << vec[j];
             if(j != i + currSize - 1)
                 std::cout << ",";
@@ -133,8 +135,6 @@ void merge(std::vector<int> &vec, int left, int mid, int right)
     int lenLeft = mid - left + 1;
     int lenRight = right - mid;
 
-    //std::cout << "LENLEFT: " << lenLeft << std::endl;
-    //std::cout << "RIGHTLEFT: " << lenRight << std::endl;
     std::vector<int>leftSide(lenLeft);
     std::vector<int>rightSide(lenRight);
     for(int i = 0; i < lenLeft; i++)
@@ -142,16 +142,15 @@ void merge(std::vector<int> &vec, int left, int mid, int right)
     for(int i = 0; i < lenRight; i++)
         rightSide[i] = vec[mid + 1 + i];
 
-    //std::merge(leftSide.begin(), leftSide.end(), rightSide.begin(), rightSide.end(), vec.begin() + left);
     int l = 0;
     int r = 0;
     int i = left;
     while(l < lenLeft && r < lenRight)
     {
         if(leftSide[l] <= rightSide[r])
-            vec[i] = leftSide[l++];
+            vec.at(i) = leftSide[l++];
         else
-            vec[i] = rightSide[r++];
+            vec.at(i) = rightSide[r++];
         i++;
     }
     while (l < lenLeft)
@@ -161,39 +160,53 @@ void merge(std::vector<int> &vec, int left, int mid, int right)
         vec[i++] = rightSide[r++];
 }
 
-void PmergeMe::sort()
+std::vector<int> PmergeMe::sortVector()
 {
     if(isSort(this->vec) || this->vec.size() == 1)
-        return;
+        return this->vec;
     
+    int backN = 0;
     bool odd = false;
     if(this->vec.size() % 2 != 0)
     {
-        int back_n = vec.back();
+        backN = vec.back();
         vec.pop_back();
         odd = true;
-        (void)back_n;
-        (void)odd;
     }
     
-    std::vector<int>aux;
+    std::vector<int>s_vec;
     for (size_t i = 0; i < this->vec.size(); i ++)
-        aux.push_back(vec.at(i));
+        s_vec.push_back(vec.at(i));
     
-    sortPair(aux);//sort pair [a,b]
-    int len = aux.size();
-    std::cout << len << std::endl;
-    for(int currSize = 2; currSize < len; currSize *= 2) //[a,b] [c,d]  <-++-> [a,b,c,d]
+    sortPair(s_vec);//sort pair [a,b]
+    int len = s_vec.size();
+    for(int currSize = 2; currSize < len - 1; currSize *= 2) //[a,b] [c,d]  <-++-> [a,b,c,d]
     {
         for(int left = 0; left < len - 1; left += 2 * currSize)
         {
-            std::cout << "Left: " << left << std::endl;
-            int mid = left + currSize - 1;
-            int right = std::min(left + 2 * currSize - 1 , len -1);
+            int mid = std::min(left + currSize - 1, len - 1);
+            int right = std::min(left + 2 * currSize - 1 , len - 1);
             //std::cout << "left=" << left << " mid=" << mid << " right=" << right << std::endl;
-            merge(aux, left, mid, right);
+            merge(s_vec, left, mid, right);
         }
-        std::cout << currSize << std::endl;
     }
-    std::cout << aux;
+    if(odd)
+    {
+        std::vector<int>::iterator pos_vec = std::upper_bound(s_vec.begin(), s_vec.end(), backN);//Find correct postion
+        s_vec.insert(pos_vec,backN);
+    }
+    return s_vec;
+}
+
+void PmergeMe::sort()
+{
+    this->timeInitVec = clock();
+    std::cout << "Before: " << this->vec << std::endl;
+    std::vector<int> s_vec = sortVector();
+    this->timeEndVec = clock();//Time finish(Procesador cicles clock have to change seconds <CLOCK_PER_SEC>)
+    std::cout << "Before: " << s_vec << std::endl;
+    
+    double r_time;
+    r_time =  CLOCKS_PER_SEC * (this->timeEndVec - this->timeInitVec) / 1e6;
+    std::cout << "Time to process a range of 5 elements: " << r_time << " us" << std::endl;
 }

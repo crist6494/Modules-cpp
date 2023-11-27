@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:06:29 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/23 11:49:47 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/27 20:28:09 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,14 @@
 # include <iostream>
 # include <vector>
 # include <sstream>
+# include <ctime>
 
 class PmergeMe
 {
     private:
         std::vector<int>vec;
+        clock_t timeInitVec;
+        clock_t timeEndVec;
     public:
         PmergeMe();
         PmergeMe(int ac, char **av);
@@ -38,6 +41,7 @@ class PmergeMe
         PmergeMe& operator=(const PmergeMe& src);
 
         void addNumber(const std::string& n_input);
+        std::vector<int> sortVector();
         void sort();
 };
 
