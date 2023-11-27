@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:05:27 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/22 13:11:29 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:50:17 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ RPN& RPN::operator=(RPN src)
     return *this;
 }
 
-static int stoi(const std::string& s)
+static int 
+stoi(const std::string& s)
 {
     std::stringstream convert(s);
     int number;

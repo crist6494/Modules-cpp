@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:06:29 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/22 14:47:20 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:49:47 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ class PmergeMe
         std::vector<int>vec;
     public:
         PmergeMe();
+        PmergeMe(int ac, char **av);
         ~PmergeMe();
         PmergeMe(const PmergeMe& cpy);
 
         PmergeMe& operator=(const PmergeMe& src);
 
-        void takeInput(int ac, char **input);
         void addNumber(const std::string& n_input);
+        void sort();
 };
 
 std::ostream& operator<<(std::ostream& os, std::vector<int>);
