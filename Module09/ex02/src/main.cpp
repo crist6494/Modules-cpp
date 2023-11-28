@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:06:04 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/28 18:25:34 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/28 20:46:15 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,17 @@ int main(int ac, char **av)
 {
     if(ac > 1)
     {
-        PmergeMe sort(ac, av);
-        //sort.sort();
-        sort.sortDeque();
-        return 0;
-    }
+        try
+        {
+            PmergeMe sortMerge(ac, av);
+            sortMerge.sort();
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << RED << "Error: " << e.what() << std::endl << RESET;
+        }
+            return 0;
+        }
     else
     {
         std::cerr << RED << "Error: bad arguments." << RESET << std::endl;

@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:06:29 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/28 18:30:20 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/28 20:37:02 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,15 @@ class PmergeMe
     private:
         std::vector<int>vec;
         std::deque<int>deque;
+
+        clock_t timeVec;
+        clock_t timeDeque;
         
-        clock_t timeInitVec;
-        clock_t timeEndVec;
-        //clock_t timeInitList;
-        //clock_t timeEndList;
+        void addNumber(const std::string& n_input);
         
         std::vector<int> sortVector();
-        void addNumber(const std::string& n_input);
+        std::deque<int> sortDeque();
+        
     public:
         PmergeMe();
         PmergeMe(int ac, char **av);
@@ -48,7 +49,6 @@ class PmergeMe
 
         PmergeMe& operator=(const PmergeMe& src);
 
-        std::deque<int> sortDeque();
         void sort();
 };
 
@@ -69,19 +69,8 @@ bool isSort(Container& container)
 }
 
 template<typename Container>
-void sortPair(Container& container)
-{
-    typename Container::iterator it;
-    for(it = container.begin(); it != container.end(); it += 2)
-    {
-        if ((it + 1) != container.end() && (*it > *(it + 1)))
-            std::swap(*it, *(it + 1));
-    }
-}
-template<typename Container>
 void merge(Container &container, int left, int mid, int right)
 {
-    std::cout << "Entra\n";
     int lenLeft = mid - left + 1;
     int lenRight = right - mid;
 
@@ -108,28 +97,27 @@ void merge(Container &container, int left, int mid, int right)
     while(itLeft != leftSide.end() && itRight != rightSide.end())
     {
         if(*itLeft <= *itRight)
-        {
             container.at(i) = *itLeft++;
-            //*itLeft++;
-        }
         else
-        {
             container.at(i) = *itRight++;
-            //*itRight++;
-        }
         i++;
     }
     while (itLeft != leftSide.end())
-    {
         container[i++] = *itLeft++;
-        //itLeft++;
-    }
 
     while (itRight != rightSide.end())
-    {
         container[i++] = *itRight++;
-        //itRight++;
-    }
 }
+
+/* template<typename Container>
+void sortPair(Container& container)
+{
+    typename Container::iterator it;
+    for(it = container.begin(); it != container.end(); it += 2)
+    {
+        if ((it + 1) != container.end() && (*it > *(it + 1)))
+            std::swap(*it, *(it + 1));
+    }
+} */
 
 #endif
