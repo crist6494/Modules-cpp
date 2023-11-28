@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:06:04 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/23 11:59:06 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:25:34 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int main(int ac, char **av)
     if(ac > 1)
     {
         PmergeMe sort(ac, av);
-        sort.sort();
+        //sort.sort();
+        sort.sortDeque();
         return 0;
     }
     else
