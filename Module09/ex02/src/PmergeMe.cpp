@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:08:02 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/28 20:45:40 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:58:52 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ PmergeMe::PmergeMe()
 {
     return ;
 }
-
 
 PmergeMe::~PmergeMe()
 {
@@ -39,6 +38,23 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& src)
         this->timeDeque = src.timeDeque;
     }
     return *this;
+}
+
+void printSubgroups(const std::vector<int>& vec, size_t currSize) {
+    std::cout << "Subgrupos de tamaño " << currSize << ":" << std::endl;
+    for (size_t i = 0; i < vec.size(); i += currSize)
+    {
+        std::cout << i << " " << vec.size() << std::endl;
+        std::cout << "[";
+        for (size_t j = i; j < i + currSize && j < vec.size(); j++)
+        {
+            std::cout << vec[j];
+            if(j != i + currSize - 1)
+                std::cout << ",";
+        }
+        std::cout << "]";
+        std::cout << "   ";
+    }
 }
 
 std::ostream& operator<<(std::ostream& os, std::vector<int>& vec)
@@ -101,21 +117,57 @@ PmergeMe::PmergeMe(int ac, char **av)
     }
 }
 
-void printSubgroups(const std::vector<int>& vec, size_t currSize) {
-    std::cout << "Subgrupos de tamaño " << currSize << ":" << std::endl;
-    for (size_t i = 0; i < vec.size(); i += currSize)
+template<typename Container>
+bool isSort(Container& container)
+{
+    typename Container::iterator it;
+    for(it = container.begin() ; it != container.end(); it++)
     {
-        std::cout << i << " " << vec.size() << std::endl;
-        std::cout << "[";
-        for (size_t j = i; j < i + currSize && j < vec.size(); j++)
-        {
-            std::cout << vec[j];
-            if(j != i + currSize - 1)
-                std::cout << ",";
-        }
-        std::cout << "]";
-        std::cout << "   ";
+        if(*it > *std::next(it))
+            return false;
     }
+    return true;
+}
+
+template<typename Container>
+void merge(Container &container, int left, int mid, int right)
+{
+    int lenLeft = mid - left + 1;
+    int lenRight = right - mid;
+
+    Container leftSide(lenLeft);
+    Container rightSide(lenRight);
+
+    typename Container::iterator itLeft = leftSide.begin();
+    typename Container::iterator itRight = rightSide.begin();
+    
+    for(int i = 0; i < lenLeft; i++)
+    {
+        *itLeft = container[left + i];
+        *itLeft++;
+    }
+    for(int i = 0; i < lenRight; i++)
+    {
+        *itRight = container[mid + 1 + i];
+        *itRight++;        
+    }
+
+    itLeft = leftSide.begin();
+    itRight = rightSide.begin();
+    int i = left;
+    while(itLeft != leftSide.end() && itRight != rightSide.end())
+    {
+        if(*itLeft <= *itRight)
+            container.at(i) = *itLeft++;
+        else
+            container.at(i) = *itRight++;
+        i++;
+    }
+    while (itLeft != leftSide.end())
+        container[i++] = *itLeft++;
+
+    while (itRight != rightSide.end())
+        container[i++] = *itRight++;
 }
 
 std::vector<int> PmergeMe::sortVector()
@@ -133,8 +185,7 @@ std::vector<int> PmergeMe::sortVector()
     }
     
     std::vector<int>s_vec;
-    for (size_t i = 0; i < this->vec.size(); i ++)
-        s_vec.push_back(vec.at(i));
+    std::copy(this->vec.begin(), this->vec.end(), std::back_inserter(s_vec));
         
     int len = s_vec.size();
     for(int currSize = 1; currSize < len; currSize *= 2) //[a,b] [c,d]  <-++-> [a,b,c,d]
@@ -195,11 +246,11 @@ void PmergeMe::sort()
 {
     double r_time;
     
-    this->timeVec = clock();
+    this->timeVec = std::clock();
     std::cout << "Before: " << this->vec << std::endl;
     std::cout << "Vector sorted: ";
     this->vec = sortVector();
-    this->timeVec = clock() - this->timeVec; //Time finish(Procesador cicles clock have to change seconds <CLOCK_PER_SEC>)
+    this->timeVec = std::clock() - this->timeVec; //Time finish(Procesador cicles clock have to change seconds <CLOCK_PER_SEC>)
     std::cout << this->vec << std::endl; 
     
     this->timeDeque = clock();
@@ -208,8 +259,8 @@ void PmergeMe::sort()
     this->timeDeque = clock() - this->timeDeque;
     std::cout << this->deque << std::endl;
     
-    r_time =  CLOCKS_PER_SEC * (this->timeVec) / 1e6;
+    r_time =  static_cast<double>(this->timeVec) / CLOCKS_PER_SEC * 1e6;
     std::cout << "Time to process a range of " << this->vec.size() << " elements with std::vector<int> : " << r_time << " us" << std::endl;
-    r_time =  CLOCKS_PER_SEC * (this->timeDeque) / 1e6;
+    r_time =  static_cast<double>(this->timeDeque) / CLOCKS_PER_SEC * 1e6;
     std::cout << "Time to process a range of " << this->deque.size() << " elements with std::deque<int>  : " << r_time << " us" << std::endl;
 }

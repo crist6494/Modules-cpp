@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:06:29 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/28 20:37:02 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/29 00:18:00 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # include <deque>
 # include <sstream>
 # include <ctime>
+# include <chrono>
+#include <iomanip>
 
 class PmergeMe
 {
@@ -52,62 +54,9 @@ class PmergeMe
         void sort();
 };
 
-
 std::ostream& operator<<(std::ostream& os, std::vector<int>& vector);
 std::ostream& operator<<(std::ostream& os, std::deque<int>& deque);
 
-template<typename Container>
-bool isSort(Container& container)
-{
-    typename Container::iterator it;
-    for(it = container.begin() ; it != container.end(); it++)
-    {
-        if(*it > *std::next(it))
-            return false;
-    }
-    return true;
-}
-
-template<typename Container>
-void merge(Container &container, int left, int mid, int right)
-{
-    int lenLeft = mid - left + 1;
-    int lenRight = right - mid;
-
-    Container leftSide(lenLeft);
-    Container rightSide(lenRight);
-
-    typename Container::iterator itLeft = leftSide.begin();
-    typename Container::iterator itRight = rightSide.begin();
-    
-    for(int i = 0; i < lenLeft; i++)
-    {
-        *itLeft = container[left + i];
-        *itLeft++;
-    }
-    for(int i = 0; i < lenRight; i++)
-    {
-        *itRight = container[mid + 1 + i];
-        *itRight++;        
-    }
-
-    itLeft = leftSide.begin();
-    itRight = rightSide.begin();
-    int i = left;
-    while(itLeft != leftSide.end() && itRight != rightSide.end())
-    {
-        if(*itLeft <= *itRight)
-            container.at(i) = *itLeft++;
-        else
-            container.at(i) = *itRight++;
-        i++;
-    }
-    while (itLeft != leftSide.end())
-        container[i++] = *itLeft++;
-
-    while (itRight != rightSide.end())
-        container[i++] = *itRight++;
-}
 
 /* template<typename Container>
 void sortPair(Container& container)
