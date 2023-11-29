@@ -6,12 +6,20 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:30:46 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/14 15:07:37 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/29 21:05:54 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.hpp"
 #include "phonebook.hpp"
+
+static int stoi(const std::string& s)
+{
+    std::stringstream convert(s);
+    int number;
+    convert >> number;
+    return number;
+}
 
 int	main(void)
 {
@@ -38,7 +46,7 @@ int	main(void)
 			if (std::cin.eof())
 				return (1);
 			if(num[0] >= '0' && num[0] <= '9' && num.size() < 10)
-				n = std::stoi(num);
+				n = ::stoi(num);
 			else
 				n = -1;
 			pb.print_num_contact(n);

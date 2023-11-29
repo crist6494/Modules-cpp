@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:44:11 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/14 21:02:39 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/29 21:03:01 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,30 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src)
     if(this == &src)
         return *this;
     return *this;
+}
+
+static int stoi(const std::string& s)
+{
+    std::stringstream convert(s);
+    int number;
+    convert >> number;
+    return number;
+}
+
+static float stof(const std::string& s)
+{
+    std::stringstream convert(s);
+    float number;
+    convert >> number;
+    return number;
+}
+
+static double stod(const std::string& s)
+{
+    std::stringstream convert(s);
+    double number;
+    convert >> number;
+    return number;
 }
 
 static bool is_char(std::string s)
@@ -130,7 +154,7 @@ static void castChar(std::string s)
 
 static void castInt(std::string s)
 {
-    int _i = std::stoi(s);
+    int _i = ::stoi(s);
     
     if(_i < 32 || _i > 126)
             std::cout << CYAN << "char:   not displayable" << std::endl;
@@ -143,7 +167,7 @@ static void castInt(std::string s)
 
 static void castFloat(std::string s)
 {
-    float _f = std::stof(s);
+    float _f = ::stof(s);
     
         if(_f < 32 || _f > 126)
         std::cout << CYAN << "char:   not displayable" << std::endl;
@@ -157,7 +181,7 @@ static void castFloat(std::string s)
 
 static void castDouble(std::string s)
 {
-    double _d = std::stod(s);
+    double _d = ::stod(s);
     
     if(_d < 32 || _d > 126)
         std::cout << CYAN << "char:   not displayable" << std::endl;

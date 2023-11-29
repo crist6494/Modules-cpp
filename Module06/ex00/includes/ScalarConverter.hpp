@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:42:16 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/14 21:02:25 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/29 21:02:02 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 
 # include <iostream>
+# include <sstream>
 # include <string>
 # include <iomanip>
 

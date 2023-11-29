@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:05:27 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/23 11:50:17 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/29 21:08:49 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ RPN& RPN::operator=(RPN src)
     return *this;
 }
 
-static int 
-stoi(const std::string& s)
+static int stoi(const std::string& s)
 {
     std::stringstream convert(s);
     int number;
@@ -106,7 +105,7 @@ void RPN::run(std::string input)
         }
         if(this->stack.size() != 1) // if there is more than one element in the stack
             throw std::invalid_argument("too many operands");
-        std::cout << std::endl << result << std::endl;
+        std::cout << result << std::endl;
     }
     catch(const std::exception& e)
     {

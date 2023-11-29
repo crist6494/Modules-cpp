@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:05:28 by cmorales          #+#    #+#             */
-/*   Updated: 2023/11/22 13:10:32 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/29 21:01:20 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,14 @@ static int stoi(const std::string& s)
     return number;
 }
 
+static float stof(const std::string& s)
+{
+    std::stringstream convert(s);
+    float number;
+    convert >> number;
+    return number;
+}
+
 void BitcoinExchange::takeData(const std::string& filename)
 {
     std::ifstream fileData;
@@ -67,11 +75,12 @@ void BitcoinExchange::takeData(const std::string& filename)
     std::getline(fileData, line, '\n');
     while(std::getline(fileData, line, '\n'))
     {
+        value = 0;
         key = line.substr(0, line.find(','));
         try
         {
             std::string stringFloat = line.substr(line.find(',') + 1);
-            value = std::stof(stringFloat);
+            value = ::stof(stringFloat);
         }
         catch(const std::exception& e)
         {
@@ -108,7 +117,7 @@ bool BitcoinExchange::checkKey(const std::string& key)
         return false;
     else if(this->_month < 1 || this->_month > 12)
         return false;
-    else if(this->_month < 1 || this->_month > 31)
+    else if(this->_day < 1 || this->_day > 31)
         return false;
     return true;
 }
@@ -133,7 +142,7 @@ bool BitcoinExchange::checkValue(const std::string& value)
             else
                 throw std::invalid_argument("Error: not a number.");
         }
-        this->_value = std::stof(value);
+        this->_value = ::stof(value);
         if(this->_value < 0)
             throw std::invalid_argument("Error: not a positive number.");
         else if(this->_value > 1000)

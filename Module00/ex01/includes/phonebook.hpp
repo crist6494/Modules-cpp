@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:33:44 by cmorales          #+#    #+#             */
-/*   Updated: 2023/04/12 18:47:11 by cmorales         ###   ########.fr       */
+/*   Updated: 2023/11/29 21:05:17 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <sstream>
 # include <string>
 # include "contact.hpp"
 # include <iomanip>
